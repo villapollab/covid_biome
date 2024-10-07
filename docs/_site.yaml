@@ -1,0 +1,8 @@
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Gut microbiome in Covid-19"
+      href: covid_2024.html

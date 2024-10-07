@@ -1,0 +1,289 @@
+ROUND	BARCODE	sample	Time	COVID19	COVID19_severity	BMI	DNI	Treatment	Age	Old	Sex	Antibiotic	remove_duplicate	filename	avg_phred	PACS	Cardioresp	Derma	Gastro	Muscul	Neuro	Systemic
+r12	b19	r12_b19	T0	COVID	Mild	Lean	42147727	Tannins	20	n	M	Untreated		r12_b19.fq	12.32332693							
+r12	b20	r12_b20	T14	COVID	Mild	Lean	42147727	Tannins	20	n	M	Untreated		r12_b20.fq	12.31913284							
+r12	b17	r12_b17	T0	COVID	Mild	Obese	95320273	Tannins	21	n	F	Untreated		r12_b17.fq	12.36136393							
+r12	b18	r12_b18	T14	COVID	Mild	Obese	95320273	Tannins	21	n	F	Untreated		r12_b18.fq	12.38018167							
+r12	b16	r12_b16	T14	COVID	Mild	Lean	134464	Tannins	23	n	M	Untreated		r12_b16.fq	12.36949587							
+r13	b12	r13_b12	T0	COVID	Mild	Lean	134464	Tannins	23	n	M	Untreated		r13_b12.fq	12.48642437							
+r12	b13	r12_b13	T0	COVID	Mild	Obese	38958062	Placebo	25	n	F	Untreated		r12_b13.fq	12.41834024							
+r12	b14	r12_b14	T14	COVID	Mild	Obese	38958062	Placebo	25	n	F	Untreated		r12_b14.fq	12.41653884							
+r12	b10	r12_b10	T14	COVID	Mild	Lean	37065943	Tannins	27	n	F	Untreated		r12_b10.fq	12.35781054							
+r12	b8	r12_b8	T0	COVID	Mild	Lean	37065943	Tannins	27	n	F	Untreated		r12_b8.fq	12.4213103							
+r12	b7	r12_b7	T0	COVID	Mild	Lean	37066293	Tannins	27	n	M	Untreated		r12_b7.fq	12.36649507							
+r12	b9	r12_b9	T14	COVID	Mild	Lean	37066293	Tannins	27	n	M	Untreated		r12_b9.fq	12.37938407							
+r12	b11	r12_b11	T0	COVID	Mild	Lean	37247437	Placebo	27	n	F	Untreated		r12_b11.fq	12.30030549							
+r12	b12	r12_b12	T14	COVID	Mild	Lean	37247437	Placebo	27	n	F	Untreated		r12_b12.fq	12.32498812							
+r12	b5	r12_b5	T0	COVID	Mild	Lean	36532523	Tannins	28	n	F	Untreated		r12_b5.fq	12.37236791							
+r12	b6	r12_b6	T14	COVID	Mild	Lean	36532523	Tannins	28	n	F	Untreated		r12_b6.fq	12.38569312							
+r12	b1	r12_b1	T0	COVID	Mild	Lean	35360816	Tannins	29	n	F	Untreated		r12_b1.fq	12.35421088							
+r12	b4	r12_b4	T14	COVID	Mild	Lean	35360816	Tannins	29	n	F	Untreated		r12_b4.fq	12.34797268							
+r12	b2	r12_b2	T0	COVID	Mild	Lean	95401513	Tannins	29	n	M	Untreated		r12_b2.fq	12.34371819	no						
+r12	b3	r12_b3	T14	COVID	Mild	Lean	95401513	Tannins	29	n	M	Untreated		r12_b3.fq	12.3619406	no						
+r11	b22	r11_b22	T0	COVID	Mild	Lean	34321372	Tannins	31	n	F	Untreated		r11_b22.fq	12.65327348	no						
+r11	b24	r11_b24	T14	COVID	Mild	Lean	34321372	Tannins	31	n	F	Untreated		r11_b24.fq	12.65209347	no						
+r11	b21	r11_b21	T0	COVID	Mild	Lean	94788389	Tannins	31	n	F	Untreated		r11_b21.fq	12.70650596							
+r11	b23	r11_b23	T14	COVID	Mild	Lean	94788389	Tannins	31	n	F	Untreated		r11_b23.fq	12.67198454							
+r11	b15	r11_b15	T0	COVID	Mild	Obese	33435394	Tannins	32	n	F	Untreated		r11_b15.fq	12.67569798	yes	1	1	0	0	1	0
+r11	b16	r11_b16	T14	COVID	Mild	Obese	33435394	Tannins	32	n	F	Untreated		r11_b16.fq	12.66234816	yes	1	1	0	0	1	0
+r11	b17	r11_b17	T0	COVID	Moderate	Lean	33284661	Placebo	32	n	F	Untreated		r11_b17.fq	12.66707064							
+r11	b18	r11_b18	T14	COVID	Moderate	Lean	33284661	Placebo	32	n	F	Untreated		r11_b18.fq	12.62988919							
+r11	b19	r11_b19	T0	COVID	Moderate	Lean	94195726	Placebo	32	n	M	Untreated		r11_b19.fq	12.64347753							
+r11	b20	r11_b20	T14	COVID	Moderate	Lean	94195726	Placebo	32	n	M	Untreated		r11_b20.fq	12.7807158							
+r11	b13	r11_b13	T0	COVID	Mild	Lean	31605714	Tannins	35	n	F	Untreated		r11_b13.fq	12.69936087	yes	1	0	0	0	1	1
+r11	b14	r11_b14	T14	COVID	Mild	Lean	31605714	Tannins	35	n	F	Untreated		r11_b14.fq	12.65185816	yes	1	0	0	0	1	1
+r11	b10	r11_b10	T14	COVID	Mild	Lean	30925792	Tannins	36	n	M	Untreated		r11_b10.fq	12.66576995							
+r11	b9	r11_b9	T0	COVID	Mild	Lean	30925792	Tannins	36	n	M	Untreated		r11_b9.fq	12.71561289							
+r11	b11	r11_b11	T0	COVID	Severe	Lean	95088981	Tannins	36	n	F	Antibiotic		r11_b11.fq	12.67179827							
+r11	b12	r11_b12	T14	COVID	Severe	Lean	95088981	Tannins	36	n	F	Antibiotic		r11_b12.fq	12.69813186							
+r11	b4	r11_b4	T0	COVID	Mild	Obese	31844376	Tannins	37	n	M	Untreated		r11_b4.fq	12.65716061							
+r11	b5	r11_b5	T14	COVID	Mild	Obese	31844376	Tannins	37	n	M	Untreated		r11_b5.fq	12.67087953							
+r11	b7	r11_b7	T0	COVID	Severe	Obese	29885341	Tannins	37	n	M	Untreated		r11_b7.fq	12.65231322	yes	1	0	0	1	1	1
+r11	b8	r11_b8	T14	COVID	Severe	Obese	29885341	Tannins	37	n	M	Untreated		r11_b8.fq	12.67506904	yes	1	0	0	1	1	1
+r11	b6	r11_b6	T0	COVID	Moderate	Lean	30081674	Tannins	37	n	F	Antibiotic		r11_b6.fq	12.65811819							
+r10	b24	r10_b24	Control	Control	Control	0.001926717	95468183	Control	38	n	F	Untreated		r10_b24.fq	13.14586342							
+r10	b23	r10_b23	Control	Control	Control	Lean	95884332	Control	38	n	F	Untreated		r10_b23.fq	13.10683153							
+r10	b21	r10_b21	T0	COVID	Moderate	Obese	29382265	Placebo	38	n	M	Untreated		r10_b21.fq	13.21531597	no						
+r10	b22	r10_b22	T14	COVID	Moderate	Obese	29382265	Placebo	38	n	M	Untreated		r10_b22.fq	13.17608596	no						
+r10	b18	r10_b18	T0	COVID	Mild	Lean	94265321	Tannins	39	n	M	Antibiotic		r10_b18.fq	13.16532019							
+r10	b19	r10_b19	T0	COVID	Moderate	Obese	28265794	Placebo	39	n	F	Untreated		r10_b19.fq	13.19542311							
+r10	b20	r10_b20	T14	COVID	Moderate	Obese	28265794	Placebo	39	n	F	Untreated		r10_b20.fq	13.17047453							
+r10	b17	r10_b17	Control	Control	Control	Lean	27516329	Control	40	n	F	Untreated		r10_b17.fq	13.2046791							
+r10	b11	r10_b11	T0	COVID	Mild	Lean	27373970	Tannins	40	n	F	Untreated		r10_b11.fq	13.20231959	no						
+r10	b14	r10_b14	T14	COVID	Mild	Lean	27373970	Tannins	40	n	F	Untreated		r10_b14.fq	13.21426444	no						
+r10	b12	r10_b12	T0	COVID	Mild	Obese	28129043	Tannins	40	n	F	Untreated		r10_b12.fq	13.17829992	yes	0	1	0	1	1	1
+r10	b13	r10_b13	T14	COVID	Mild	Obese	28129043	Tannins	40	n	F	Untreated		r10_b13.fq	13.21218604	yes	0	1	0	1	1	1
+r10	b15	r10_b15	T0	COVID	Moderate	Lean	94281816	Placebo	40	n	M	Untreated		r10_b15.fq	13.20516221							
+r10	b16	r10_b16	T14	COVID	Moderate	Lean	94281816	Placebo	40	n	M	Untreated		r10_b16.fq	13.17854817							
+r10	b10	r10_b10	Control	Control	Control	Lean	24778389	Control	42	n	F	Untreated		r10_b10.fq	13.19978643							
+r10	b3	r10_b3	T0	COVID	Mild	Lean	26605417	Placebo	42	n	F	Untreated		r10_b3.fq	13.15268359							
+r10	b5	r10_b5	T14	COVID	Mild	Lean	26605417	Placebo	42	n	F	Untreated		r10_b5.fq	13.21202404							
+r10	b6	r10_b6	T0	COVID	Moderate	Obese	26425941	Tannins	42	n	F	Untreated		r10_b6.fq	11.94893832							
+r10	b9	r10_b9	T0	COVID	Moderate	Lean	27764319	Placebo	42	n	F	Antibiotic		r10_b9.fq	13.19686331							
+r10	b4	r10_b4	T0	COVID	Severe	Lean	93793720	Tannins	42	n	F	Untreated		r10_b4.fq	13.21761984							
+r10	b7	r10_b7	T14	COVID	Severe	Lean	93793720	Tannins	42	n	F	Untreated	y	r10_b7.fq	13.19887456							
+r10	b8	r10_b8	T14	COVID	Severe	Lean	93793720	Tannins	42	n	F	Untreated		r10_b8.fq	13.24608659							
+r9	b24	r9_b24	Control	Control	Control	Lean	25699757	Control	43	n	F	Untreated		r9_b24.fq	12.40102454							
+r10	b1	r10_b1	T0	COVID	Mild	Lean	26272252	Tannins	43	n	F	Untreated		r10_b1.fq	13.1935101							
+r10	b2	r10_b2	T14	COVID	Mild	Lean	26272252	Tannins	43	n	F	Untreated		r10_b2.fq	13.23477245							
+r13	b14	r13_b14	T0	COVID	Moderate	Lean	25753321	Tannins	43	n	M	Antibiotic		r13_b14.fq	12.57931298							
+r9	b23	r9_b23	T14	COVID	Moderate	Lean	25753321	Tannins	43	n	M	Antibiotic		r9_b23.fq	12.49998802							
+r9	b21	r9_b21	Control	Control	Control	Lean	25181551	Control	44	n	F	Untreated		r9_b21.fq	12.42143909							
+r9	b18	r9_b18	T0	COVID	Moderate	Obese	25420378	Placebo	44	n	F	Untreated		r9_b18.fq	12.37366005							
+r9	b19	r9_b19	T0	COVID	Moderate	Lean	25423563	Placebo	44	n	F	Untreated		r9_b19.fq	12.42258718	yes	1	1	1	1	1	1
+r9	b20	r9_b20	T14	COVID	Moderate	Lean	25423563	Placebo	44	n	F	Untreated		r9_b20.fq	12.42870554	yes	1	1	1	1	1	1
+r9	b15	r9_b15	Control	Control	Control	Lean	24235925	Control	45	n	F	Untreated		r9_b15.fq	12.44198228							
+r9	b17	r9_b17	Control	Control	Control	Lean	24286886	Control	45	n	M	Untreated		r9_b17.fq	12.42660127							
+r9	b16	r9_b16	Control	Control	Control	Lean	24463204	Control	45	n	F	Untreated		r9_b16.fq	12.46426043							
+r11	b2	r11_b2	Control	Control	Control		24564018	Control	45	n	F	Untreated		r11_b2.fq	12.65980814							
+r9	b12	r9_b12	T0	COVID	Moderate	Lean	19037155	Placebo	45	n	M	Untreated		r9_b12.fq	12.34330022	yes						
+r9	b13	r9_b13	T14	COVID	Moderate	Lean	19037155	Placebo	45	n	M	Untreated		r9_b13.fq	12.43996787	yes						
+r9	b10	r9_b10	T14	COVID	Moderate	Lean	23830742	Placebo	45	n	M	Antibiotic		r9_b10.fq	12.46901943	no						
+r9	b9	r9_b9	T0	COVID	Moderate	Lean	23830742	Placebo	45	n	M	Antibiotic		r9_b9.fq	12.40866696	no						
+r9	b11	r9_b11	T0	COVID	Moderate	Obese	95372099	Placebo	45	n	M	Untreated		r9_b11.fq	12.3489085							
+r9	b14	r9_b14	T14	COVID	Moderate	Obese	95372099	Placebo	45	n	M	Untreated		r9_b14.fq	12.422151							
+r9	b4	r9_b4	Control	Control	Control	Obese	23787175	Control	46	n	M	Untreated		r9_b4.fq	12.46983027							
+r9	b8	r9_b8	Control	Control	Control	Lean	23873977	Control	46	n	F	Untreated		r9_b8.fq	12.41413553							
+r9	b7	r9_b7	Control	Control	Control	Lean	23875345	Control	46	n	M	Untreated		r9_b7.fq	12.38242749							
+r9	b5	r9_b5	Control	Control	Control	Lean	23887903	Control	46	n	M	Untreated		r9_b5.fq	12.42589248							
+r9	b1	r9_b1	T0	COVID	Moderate	Lean	24054215	Tannins	46	n	M	Antibiotic		r9_b1.fq	12.32835364	no						
+r8	b24	r8_b24	T0	COVID	Moderate	Lean	93959644	Tannins	46	n	M	Antibiotic		r8_b24.fq	12.91151957							
+r9	b2	r9_b2	T14	COVID	Moderate	Lean	93959644	Tannins	46	n	M	Antibiotic		r9_b2.fq	12.44580547							
+r9	b3	r9_b3	T0	COVID	Severe	Lean	94278615	Placebo	46	n	M	Antibiotic		r9_b3.fq	12.40882887	yes						
+r9	b6	r9_b6	T14	COVID	Severe	Lean	94278615	Placebo	46	n	M	Antibiotic		r9_b6.fq	12.41069932	yes						
+r8	b22	r8_b22	Control	Control	Control	Lean	23086935	Control	47	n	M	Untreated		r8_b22.fq	12.86472826							
+r8	b23	r8_b23	Control	Control	Control	Lean	23147665	Control	47	n	M	Untreated		r8_b23.fq	12.89893485							
+r12	b24	r12_b24	Control	Control	Control		23266697	Control	47	n	F	Untreated		r12_b24.fq	12.35890712							
+r8	b20	r8_b20	T0	COVID	Mild	Obese	23149610	Placebo	47	n	F	Untreated		r8_b20.fq	12.87305317	yes	0	1	1	0	1	1
+r8	b21	r8_b21	T14	COVID	Mild	Obese	23149610	Placebo	47	n	F	Untreated		r8_b21.fq	12.89676687	yes	0	1	1	0	1	1
+r8	b19	r8_b19	T0	COVID	Moderate	Obese	23310432	Tannins	47	n	F	Antibiotic		r8_b19.fq	12.85805674	yes						
+r8	b18	r8_b18	Control	Control	Control	Obese	22846142	Control	48	n	M	Untreated		r8_b18.fq	12.95103862							
+r8	b11	r8_b11	T0	COVID	Mild	Obese	92845069	Tannins	48	n	F	Untreated		r8_b11.fq	12.84355698							
+r8	b12	r8_b12	T14	COVID	Mild	Obese	92845069	Tannins	48	n	F	Untreated		r8_b12.fq	12.92732042							
+r8	b13	r8_b13	T0	COVID	Moderate	Obese	22466176	Placebo	48	n	F	Untreated		r8_b13.fq	13.01352741							
+r8	b16	r8_b16	T0	COVID	Severe	Obese	22858009	Tannins	48	n	M	Untreated		r8_b16.fq	12.9262199							
+r8	b17	r8_b17	T14	COVID	Severe	Obese	22858009	Tannins	48	n	M	Untreated		r8_b17.fq	12.85645333							
+r8	b14	r8_b14	T0	COVID	Severe	Obese	94728180	Placebo	48	n	M	Untreated		r8_b14.fq	13.03011869							
+r8	b15	r8_b15	T14	COVID	Severe	Obese	94728180	Placebo	48	n	M	Untreated		r8_b15.fq	12.88796845							
+r8	b6	r8_b6	Control	Control	Control	Lean	20359711	Control	49	n	M	Untreated		r8_b6.fq	12.91729155							
+r8	b9	r8_b9	Control	Control	Control	Obese	21881631	Control	49	n	F	Untreated		r8_b9.fq	12.92716551							
+r8	b8	r8_b8	Control	Control	Control	Lean	22033958	Control	49	n	M	Untreated		r8_b8.fq	12.83879335							
+r8	b10	r8_b10	Control	Control	Control	Lean	22808144	Control	49	n	F	Untreated		r8_b10.fq	12.82919788							
+r7	b22	r7_b22	T0	COVID	Mild	Lean	22005190	Tannins	49	n	M	Untreated		r7_b22.fq	13.15075968							
+r7	b23	r7_b23	T0	COVID	Mild	Lean	95262541	Tannins	49	n	M	Untreated		r7_b23.fq	13.28595329							
+r8	b1	r8_b1	T14	COVID	Mild	Lean	95262541	Tannins	49	n	M	Untreated		r8_b1.fq	12.94751691							
+r8	b3	r8_b3	T0	COVID	Moderate	Obese	21981197	Tannins	49	n	F	Untreated		r8_b3.fq	12.98664312	no						
+r8	b4	r8_b4	T14	COVID	Moderate	Obese	21981197	Tannins	49	n	F	Untreated		r8_b4.fq	12.85394671	no						
+r7	b24	r7_b24	T0	COVID	Severe	Obese	22126266	Placebo	49	n	F	Untreated		r7_b24.fq	13.29942827	yes	1	1	1	1	1	1
+r8	b2	r8_b2	T14	COVID	Severe	Obese	22126266	Placebo	49	n	F	Untreated		r8_b2.fq	12.90421394	yes	1	1	1	1	1	1
+r8	b5	r8_b5	T0	COVID	Severe	Obese	24480064	Tannins	49	n	M	Untreated		r8_b5.fq	12.95816209							
+r8	b7	r8_b7	T14	COVID	Severe	Obese	24480064	Tannins	49	n	M	Untreated		r8_b7.fq	12.90489135							
+r7	b21	r7_b21	Control	Control	Control	Obese	21573893	Control	50	n	F	Untreated		r7_b21.fq	13.23431474							
+r7	b19	r7_b19	Control	Control	Control	Lean	21763822	Control	50	n	M	Untreated		r7_b19.fq	13.19676254							
+r7	b20	r7_b20	Control	Control	Control	Obese	25029709	Control	50	n	M	Untreated		r7_b20.fq	13.26070559							
+r7	b15	r7_b15	T0	COVID	Mild	Lean	21438807	Tannins	50	n	M	Antibiotic		r7_b15.fq	13.25109295							
+r7	b13	r7_b13	T0	COVID	Severe	None	18685960	Tannins	50	n	M	Untreated		r7_b13.fq	13.33194049							
+r7	b14	r7_b14	T14	COVID	Severe	None	18685960	Tannins	50	n	M	Untreated		r7_b14.fq	13.26184917							
+r7	b16	r7_b16	T0	COVID	Moderate	Obese	21727048	Tannins	50	n	M	Untreated		r7_b16.fq	13.22258765							
+r7	b18	r7_b18	T14	COVID	Moderate	Obese	21727048	Tannins	50	n	M	Untreated		r7_b18.fq	13.2347503							
+r7	b17	r7_b17	T0	COVID	Severe	Obese	21762628	Tannins	50	n	F	Untreated		r7_b17.fq	13.25277385	no						
+r7	b9	r7_b9	Control	Control	Control	Lean	20484618	Control	51	n	M	Untreated		r7_b9.fq	13.28033288							
+r7	b11	r7_b11	Control	Control	Control	Lean	20617810	Control	51	n	F	Untreated		r7_b11.fq	13.25640457							
+r7	b12	r7_b12	Control	Control	Control	Lean	20742156	Control	51	n	F	Untreated		r7_b12.fq	13.24198913							
+r7	b10	r7_b10	Control	Control	Control	Lean	20987493	Control	51	n	F	Untreated		r7_b10.fq	13.20525671							
+r7	b3	r7_b3	T0	COVID	Severe	Obese	20453555	Tannins	51	n	M	Antibiotic		r7_b3.fq	13.23156042							
+r7	b7	r7_b7	T14	COVID	Severe	Obese	20453555	Tannins	51	n	M	Antibiotic		r7_b7.fq	13.27353493							
+r7	b5	r7_b5	T0	COVID	Severe	Obese	20493561	Placebo	51	n	M	Untreated		r7_b5.fq	13.28927556							
+r7	b8	r7_b8	T14	COVID	Severe	Obese	20493561	Placebo	51	n	M	Untreated		r7_b8.fq	13.28209739							
+r7	b4	r7_b4	T0	COVID	Severe	Obese	20637777	Tannins	51	n	F	Untreated		r7_b4.fq	13.42317255	yes	1	1	0	1	1	1
+r7	b6	r7_b6	T14	COVID	Severe	Obese	20637777	Tannins	51	n	F	Untreated		r7_b6.fq	13.24606704	yes	1	1	0	1	1	1
+r7	b1	r7_b1	T0	COVID	Moderate	Obese	20808314	Tannins	51	n	F	Untreated		r7_b1.fq	13.21812841							
+r7	b2	r7_b2	T14	COVID	Moderate	Obese	20808314	Tannins	51	n	F	Untreated		r7_b2.fq	13.24473122							
+r6	b22	r6_b22	Control	Control	Control	Lean	20313169	Control	52	n	F	Untreated		r6_b22.fq	13.25681671							
+r6	b23	r6_b23	Control	Control	Control	Lean	20396643	Control	52	n	F	Untreated		r6_b23.fq	13.35941851							
+r6	b24	r6_b24	Control	Control	Control	Obese	20567204	Control	52	n	F	Untreated		r6_b24.fq	13.33977317							
+r6	b12	r6_b12	T0	COVID	Mild	Lean	18397074	Tannins	52	n	M	Untreated		r6_b12.fq	13.30808841							
+r6	b13	r6_b13	T14	COVID	Mild	Lean	18397074	Tannins	52	n	M	Untreated		r6_b13.fq	13.3615045							
+r6	b19	r6_b19	T0	COVID	Mild	Lean	18588101	Tannins	52	n	F	Untreated		r6_b19.fq	13.34378301							
+r6	b17	r6_b17	T0	COVID	Moderate	Lean	18418901	Placebo	52	n	F	Antibiotic		r6_b17.fq	13.3840849							
+r6	b18	r6_b18	T14	COVID	Moderate	Lean	18418901	Placebo	52	n	F	Antibiotic		r6_b18.fq	13.27291678							
+r6	b21	r6_b21	T0	COVID	Moderate	Lean	18418901	Placebo	52	n	F	Antibiotic	y	r6_b21.fq	13.34381025							
+r6	b16	r6_b16	T0	COVID	Severe	Obese	20003082	Tannins	52	n	F	Untreated		r6_b16.fq	13.42940235							
+r6	b20	r6_b20	T0	COVID	Moderate	Lean	20172033	Tannins	52	n	M	Untreated		r6_b20.fq	13.2879354							
+r6	b14	r6_b14	T0	COVID	Severe	Lean	92931985	Placebo	52	n	M	Antibiotic		r6_b14.fq	13.30691222							
+r6	b15	r6_b15	T14	COVID	Severe	Lean	92931985	Placebo	52	n	M	Antibiotic		r6_b15.fq	13.31582574							
+r6	b3	r6_b3	T0	COVID	Mild	Lean	17953933	Placebo	53	n	F	Untreated		r6_b3.fq	13.25288554							
+r6	b6	r6_b6	T14	COVID	Mild	Lean	17953933	Placebo	53	n	F	Untreated		r6_b6.fq	13.28557537							
+r6	b10	r6_b10	T0	COVID	Mild	Lean	93926328	Placebo	53	n	M	Untreated		r6_b10.fq	13.34554172							
+r6	b11	r6_b11	T14	COVID	Mild	Lean	93926328	Placebo	53	n	M	Untreated		r6_b11.fq	13.29050855							
+r6	b8	r6_b8	T0	COVID	Moderate	Obese	18226278	Placebo	53	n	M	Untreated		r6_b8.fq	13.32621311	no						
+r6	b9	r6_b9	T14	COVID	Moderate	Obese	18226278	Placebo	53	n	M	Untreated		r6_b9.fq	13.36050337	no						
+r6	b1	r6_b1	T0	COVID	Moderate	Lean	18347766	Placebo	53	n	M	Untreated		r6_b1.fq	13.32640814							
+r6	b2	r6_b2	T14	COVID	Moderate	Lean	18347766	Placebo	53	n	M	Untreated		r6_b2.fq	13.16131652							
+r6	b7	r6_b7	T0	COVID	Moderate	Lean	18653414	Placebo	53	n	F	Untreated		r6_b7.fq	13.3708037							
+r6	b4	r6_b4	T0	COVID	Moderate	None	93093483	Tannins	53	n	M	Antibiotic		r6_b4.fq	13.37554503	no						
+r6	b5	r6_b5	T14	COVID	Moderate	None	93093483	Tannins	53	n	M	Antibiotic		r6_b5.fq	13.39479183	no						
+r5	b22	r5_b22	Control	Control	Control	Lean	17244686	Control	54	n	M	Untreated		r5_b22.fq	13.89899893							
+r5	b24	r5_b24	Control	Control	Control	Obese	17796434	Control	54	n	F	Untreated		r5_b24.fq	13.88093291							
+r5	b23	r5_b23	Control	Control	Control	Lean	18171542	Control	54	n	F	Untreated		r5_b23.fq	13.87663796							
+r5	b20	r5_b20	T0	COVID	Mild	Obese	17392004	Tannins	54	n	M	Untreated		r5_b20.fq	13.87538872							
+r5	b21	r5_b21	T14	COVID	Mild	Obese	17392004	Tannins	54	n	M	Untreated		r5_b21.fq	13.90603106							
+r5	b18	r5_b18	T0	COVID	Mild	Obese	17706871	Tannins	54	n	F	Untreated		r5_b18.fq	13.93289989							
+r5	b19	r5_b19	T14	COVID	Mild	Obese	17706871	Tannins	54	n	F	Untreated		r5_b19.fq	13.90666841							
+r5	b11	r5_b11	T0	COVID	Mild	Lean	17658532	Placebo	55	n	F	Untreated		r5_b11.fq	13.88398044							
+r5	b13	r5_b13	T14	COVID	Mild	Lean	17658532	Placebo	55	n	F	Untreated		r5_b13.fq	13.89348221							
+r5	b12	r5_b12	T14	COVID	Mild	Lean	94243387	Placebo	55	n	M	Untreated		r5_b12.fq	13.89434323							
+r5	b9	r5_b9	T0	COVID	Mild	Lean	94243387	Placebo	55	n	M	Untreated		r5_b9.fq	13.9633578							
+r5	b15	r5_b15	T0	COVID	Moderate	Lean	17651794	Tannins	55	n	F	Untreated		r5_b15.fq	13.93763821							
+r5	b16	r5_b16	T14	COVID	Moderate	Lean	17651794	Tannins	55	n	F	Untreated		r5_b16.fq	13.89467821							
+r5	b14	r5_b14	T0	COVID	Moderate	Lean	18159002	Placebo	55	n	F	Untreated		r5_b14.fq	13.85070416							
+r5	b17	r5_b17	T14	COVID	Moderate	Lean	18159002	Placebo	55	n	F	Untreated		r5_b17.fq	13.88611781							
+r5	b10	r5_b10	T14	COVID	Moderate	Lean	92687922	Placebo	55	n	M	Untreated		r5_b10.fq	13.91682911	no						
+r5	b8	r5_b8	T0	COVID	Moderate	Lean	92687922	Placebo	55	n	M	Untreated		r5_b8.fq	13.86273605	no						
+r5	b4	r5_b4	Control	Control	Control	Lean	16399178	Control	56	n	F	Untreated		r5_b4.fq	13.8494683							
+r5	b7	r5_b7	Control	Control	Control	Obese	16936667	Control	56	n	M	Untreated		r5_b7.fq	13.89049313							
+r5	b6	r5_b6	Control	Control	Control	Lean	16936984	Control	56	n	M	Untreated		r5_b6.fq	13.90820294							
+r5	b5	r5_b5	Control	Control	Control	Lean	17038200	Control	56	n	F	Untreated		r5_b5.fq	13.95313019							
+r4	b24	r4_b24	T0	COVID	Mild	Obese	937655691	Tannins	56	n	F	Untreated		r4_b24.fq	13.33923892							
+r5	b2	r5_b2	T0	COVID	Moderate	Lean	16687331	Tannins	56	n	F	Untreated		r5_b2.fq	13.85209194							
+r5	b3	r5_b3	T14	COVID	Moderate	Lean	16687331	Tannins	56	n	F	Untreated		r5_b3.fq	13.91972438							
+r4	b23	r4_b23	T0	COVID	Moderate	Obese	16921217	Tannins	56	n	F	Untreated		r4_b23.fq	13.37622314							
+r5	b1	r5_b1	T14	COVID	Moderate	Obese	16921217	Tannins	56	n	F	Untreated		r5_b1.fq	13.901119							
+r4	b21	r4_b21	Control	Control	Control	Obese	16242492	Control	57	n	M	Untreated		r4_b21.fq	13.39219796							
+r4	b19	r4_b19	Control	Control	Control	Obese	16398999	Control	57	n	M	Untreated		r4_b19.fq	13.40083016							
+r4	b22	r4_b22	Control	Control	Control	Lean	16930182	Control	57	n	M	Untreated		r4_b22.fq	13.41524675							
+r4	b20	r4_b20	Control	Control	Control	Lean	16938361	Control	57	n	F	Untreated		r4_b20.fq	13.38416882							
+r4	b14	r4_b14	T0	COVID	Mild	Lean	16290074	Placebo	57	n	M	Untreated		r4_b14.fq	13.36748393							
+r4	b17	r4_b17	T14	COVID	Mild	Lean	16290074	Placebo	57	n	M	Untreated		r4_b17.fq	13.36316866							
+r4	b15	r4_b15	T0	COVID	Moderate	Obese	16162551	Tannins	57	n	M	Untreated		r4_b15.fq	13.38198371	no						
+r4	b18	r4_b18	T14	COVID	Moderate	Obese	16162551	Tannins	57	n	M	Untreated		r4_b18.fq	13.27422754	no						
+r4	b13	r4_b13	T0	COVID	Moderate	Lean	16570736	Placebo	57	n	F	Antibiotic		r4_b13.fq	13.40110278	yes						
+r4	b16	r4_b16	T14	COVID	Moderate	Lean	16570736	Placebo	57	n	F	Antibiotic		r4_b16.fq	13.41196401	yes						
+r4	b8	r4_b8	T0	COVID	Moderate	Obese	7451536	Tannins	58	n	F	Antibiotic		r4_b8.fq	13.32322361							
+r4	b11	r4_b11	T14	COVID	Moderate	Lean	14986201	Placebo	58	n	F	Antibiotic		r4_b11.fq	13.51698224	yes						
+r4	b9	r4_b9	T0	COVID	Moderate	Lean	14986201	Placebo	58	n	F	Antibiotic		r4_b9.fq	13.44467965	yes						
+r4	b10	r4_b10	T0	COVID	Severe	Lean	16690017	Placebo	58	n	M	Antibiotic		r4_b10.fq	13.3562842							
+r4	b12	r4_b12	T14	COVID	Severe	Lean	16690017	Placebo	58	n	M	Antibiotic		r4_b12.fq	13.37459768							
+r4	b7	r4_b7	Control	Control	Control	Lean	14145176	Control	59	n	F	Untreated		r4_b7.fq	13.41201147							
+r11	b3	r11_b3	Control	Control	Control		14652281	Control	59	n	M	Untreated		r11_b3.fq	12.64813363							
+r4	b5	r4_b5	T0	COVID	Severe	Lean	14881512	Placebo	59	n	M	Untreated		r4_b5.fq	13.40654713							
+r4	b6	r4_b6	T14	COVID	Severe	Lean	14881512	Placebo	59	n	M	Untreated		r4_b6.fq	13.35174467							
+r11	b1	r11_b1	Control	Control	Control		13741579	Control	60	y	F	Untreated		r11_b1.fq	12.6482011							
+r13	b16	r13_b16	T0	COVID	Moderate	Lean	14033399	Placebo	60	y	M	Untreated		r13_b16.fq	12.56927925							
+r3	b18	r3_b18	T14	COVID	Moderate	Lean	14033399	Placebo	60	y	M	Untreated		r3_b18.fq	12.42926935							
+r4	b3	r4_b3	T0	COVID	Mild	Obese	12965975	Placebo	61	y	M	Untreated		r4_b3.fq	13.42204838	yes	1	1	1	1	1	1
+r4	b4	r4_b4	T14	COVID	Mild	Obese	12965975	Placebo	61	y	M	Untreated		r4_b4.fq	13.4084345	yes	1	1	1	1	1	1
+r3	b7	r3_b7	T0	COVID	Severe	Obese	12831887	Placebo	61	y	M	Antibiotic		r3_b7.fq	12.54341343							
+r3	b8	r3_b8	T14	COVID	Severe	Obese	12831887	Placebo	61	y	M	Antibiotic		r3_b8.fq	12.55786948							
+r3	b15	r3_b15	T0	COVID	Moderate	Obese	14117372	Placebo	61	y	M	Antibiotic		r3_b15.fq	12.51625971							
+r3	b16	r3_b16	T14	COVID	Moderate	Obese	14117372	Placebo	61	y	M	Antibiotic		r3_b16.fq	12.44380053							
+r3	b13	r3_b13	T0	COVID	Moderate	Obese	19012319	Tannins	61	y	F	Untreated		r3_b13.fq	12.55548064							
+r3	b14	r3_b14	T14	COVID	Moderate	Obese	19012319	Tannins	61	y	F	Untreated		r3_b14.fq	12.45538197							
+r3	b24	r3_b24	Control	Control	Control	Obese	12739239	Control	62	y	F	Untreated		r3_b24.fq	12.4618462							
+r12	b23	r12_b23	Control	Control	Control		12808406	Control	62	y	F	Untreated		r12_b23.fq	12.36019078							
+r3	b11	r3_b11	T0	COVID	Moderate	Lean	12081921	Tannins	62	y	M	Untreated		r3_b11.fq	12.46628201							
+r3	b12	r3_b12	T14	COVID	Moderate	Lean	12081921	Tannins	62	y	M	Untreated		r3_b12.fq	12.48696473							
+r3	b6	r3_b6	T0	COVID	Severe	Lean	12533113	Tannins	62	y	F	Untreated		r3_b6.fq	12.47816297							
+r3	b23	r3_b23	Control	Control	Control	Lean	13103574	Control	63	y	F	Untreated		r3_b23.fq	12.48358139							
+r3	b2	r3_b2	T0	COVID	Severe	Lean	12546351	Tannins	63	y	M	Untreated		r3_b2.fq	12.41807525							
+r3	b3	r3_b3	T14	COVID	Severe	Lean	12546351	Tannins	63	y	M	Untreated		r3_b3.fq	12.41123313							
+r3	b10	r3_b10	T0	COVID	Moderate	Obese	12914083	Placebo	63	y	M	Untreated		r3_b10.fq	12.48211271	no						
+r3	b4	r3_b4	T0	COVID	Severe	Obese	13164596	Tannins	63	y	M	Untreated		r3_b4.fq	12.46571024							
+r3	b5	r3_b5	T14	COVID	Severe	Obese	13164596	Tannins	63	y	M	Untreated		r3_b5.fq	12.5220237							
+r3	b22	r3_b22	Control	Control	Control	Lean	12285951	Control	64	y	F	Untreated		r3_b22.fq	12.49248541							
+r3	b1	r3_b1	T0	COVID	Severe	Obese	11857338	Tannins	64	y	M	Untreated		r3_b1.fq	12.36934187							
+r4	b1	r4_b1	T0	COVID	Mild	Lean	11806712	Placebo	65	y	M	Untreated		r4_b1.fq	13.33800922							
+r4	b2	r4_b2	T14	COVID	Mild	Lean	11806712	Placebo	65	y	M	Untreated		r4_b2.fq	13.36117458							
+r2	b23	r2_b23	T0	COVID	Severe	Obese	10983014	Placebo	66	y	M	Antibiotic		r2_b23.fq	12.23371978							
+r2	b24	r2_b24	T0	COVID	Severe	Obese	10983014	Placebo	66	y	M	Antibiotic	y	r2_b24.fq	12.15298586							
+r2	b21	r2_b21	T0	COVID	Severe	Obese	10641074	Tannins	67	y	F	Untreated		r2_b21.fq	12.22073298							
+r2	b22	r2_b22	T14	COVID	Severe	Obese	10641074	Tannins	67	y	F	Untreated		r2_b22.fq	12.17775155							
+r3	b9	r3_b9	T0	COVID	Moderate	Lean	11023789	Placebo	67	y	F	Untreated		r3_b9.fq	12.4701961							
+r3	b20	r3_b20	T0	COVID	Mild	Lean	10124892	Tannins	68	y	M	Untreated		r3_b20.fq	12.47125059							
+r3	b21	r3_b21	T14	COVID	Mild	Lean	10124892	Tannins	68	y	M	Untreated		r3_b21.fq	12.45329135							
+r3	b19	r3_b19	T0	COVID	Mild	None	92300511	Tannins	68	y	M	Antibiotic		r3_b19.fq	12.56557925							
+r2	b17	r2_b17	T0	COVID	Mild	Lean	6176320	Tannins	70	y	F	Untreated		r2_b17.fq	12.16388755	yes	1	1	0	1	1	1
+r2	b18	r2_b18	T14	COVID	Mild	Lean	6176320	Tannins	70	y	F	Untreated		r2_b18.fq	12.14976107	yes	1	1	0	1	1	1
+r2	b19	r2_b19	T0	COVID	Severe	Obese	93359807	Placebo	70	y	M	Antibiotic		r2_b19.fq	12.20932383							
+r2	b20	r2_b20	T14	COVID	Severe	Obese	93359807	Placebo	70	y	M	Antibiotic		r2_b20.fq	12.19569994							
+r2	b14	r2_b14	T0	COVID	Mild	Lean	5654488	Placebo	71	y	M	Untreated		r2_b14.fq	12.17089449							
+r2	b15	r2_b15	T14	COVID	Mild	Lean	5654488	Placebo	71	y	M	Untreated		r2_b15.fq	12.19028681							
+r2	b8	r2_b8	T0	COVID	Mild	None	5867684	Tannins	71	y	F	Untreated		r2_b8.fq	12.19545945							
+r2	b9	r2_b9	T14	COVID	Mild	None	5867684	Tannins	71	y	F	Untreated		r2_b9.fq	12.18727803							
+r2	b10	r2_b10	T0	COVID	Severe	Obese	5985775	Tannins	71	y	F	Untreated		r2_b10.fq	12.22618553							
+r2	b11	r2_b11	T14	COVID	Severe	Obese	5985775	Tannins	71	y	F	Untreated		r2_b11.fq	12.13263345							
+r2	b16	r2_b16	T0	COVID	Severe	Obese	5922703	Placebo	71	y	F	Untreated		r2_b16.fq	12.19264123							
+r2	b12	r2_b12	T0	COVID	Severe	None	7672698	Placebo	71	y	M	Untreated		r2_b12.fq	12.16202555							
+r2	b13	r2_b13	T14	COVID	Severe	None	7672698	Placebo	71	y	M	Untreated		r2_b13.fq	12.18620833							
+r2	b5	r2_b5	T0	COVID	Severe	Lean	5806929	Placebo	72	y	F	Untreated		r2_b5.fq	12.15847011							
+r2	b7	r2_b7	T14	COVID	Severe	Lean	5806929	Placebo	72	y	F	Untreated		r2_b7.fq	12.16268095							
+r2	b4	r2_b4	T0	COVID	Moderate	Lean	6267610	Placebo	72	y	F	Untreated		r2_b4.fq	12.11475554							
+r2	b3	r2_b3	T0	COVID	Severe	Lean	7792030	Tannins	72	y	M	Untreated		r2_b3.fq	12.12452687	no						
+r2	b6	r2_b6	T14	COVID	Severe	Lean	7792030	Tannins	72	y	M	Untreated		r2_b6.fq	12.17398757	no						
+r2	b2	r2_b2	Control	Control	Control	Lean	4547902	Control	73	y	M	Untreated		r2_b2.fq	12.18718045							
+r1	b24	r1_b24	T0	COVID	Mild	Obese	5615252	Placebo	73	y	F	Untreated		r1_b24.fq	13.04747235							
+r2	b1	r2_b1	T14	COVID	Mild	Obese	5615252	Placebo	73	y	F	Untreated		r2_b1.fq	12.14688893							
+r1	b22	r1_b22	T0	COVID	Moderate	Lean	5633524	Tannins	74	y	F	Untreated		r1_b22.fq	13.20423141							
+r1	b23	r1_b23	T14	COVID	Moderate	Lean	5633524	Tannins	74	y	F	Untreated		r1_b23.fq	13.23345886							
+r1	b20	r1_b20	T0	COVID	Moderate	Lean	92104449	Tannins	74	y	F	Untreated		r1_b20.fq	13.17843832							
+r1	b21	r1_b21	T14	COVID	Moderate	Lean	92104449	Tannins	74	y	F	Untreated		r1_b21.fq	13.02890693							
+r1	b17	r1_b17	T0	COVID	Severe	Obese	4409623	Placebo	75	y	F	Untreated	y	r1_b17.fq	13.12463517							
+r1	b18	r1_b18	T14	COVID	Severe	Obese	4409623	Placebo	75	y	F	Untreated		r1_b18.fq	12.96429451							
+r1	b19	r1_b19	T0	COVID	Severe	Obese	4409623	Placebo	75	y	F	Untreated		r1_b19.fq	13.22485573							
+r1	b16	r1_b16	T0	COVID	Severe	Lean	7592985	Tannins	76	y	M	Untreated		r1_b16.fq	13.14682636							
+r12	b22	r12_b22	Control	Control	Control		4504140	Control	77	y	F	Untreated		r12_b22.fq	12.30549365							
+r1	b14	r1_b14	T0	COVID	Mild	Lean	92123086	Placebo	77	y	M	Untreated		r1_b14.fq	12.98519915							
+r1	b15	r1_b15	T14	COVID	Mild	Lean	92123086	Placebo	77	y	M	Untreated		r1_b15.fq	13.0624929							
+r1	b12	r1_b12	T0	COVID	Severe	Lean	4410237	Tannins	77	y	M	Untreated		r1_b12.fq	13.10171963							
+r1	b13	r1_b13	T14	COVID	Severe	Lean	4410237	Tannins	77	y	M	Untreated		r1_b13.fq	13.14151643							
+r1	b10	r1_b10	T0	COVID	Mild	None	2441982	Tannins	78	y	F	Untreated		r1_b10.fq	13.06614849							
+r1	b11	r1_b11	T14	COVID	Mild	None	2441982	Tannins	78	y	F	Untreated		r1_b11.fq	12.9868758							
+r1	b7	r1_b7	T0	COVID	Moderate	Obese	3864184	Tannins	80	y	F	Antibiotic		r1_b7.fq	13.23569629							
+r1	b8	r1_b8	T0	COVID	Severe	Obese	6483581	Tannins	80	y	F	Untreated		r1_b8.fq	13.1338469							
+r1	b9	r1_b9	T14	COVID	Severe	Obese	6483581	Tannins	80	y	F	Untreated		r1_b9.fq	13.01931671							
+r1	b6	r1_b6	T0	COVID	Moderate	Lean	3748276	Tannins	82	y	F	Antibiotic		r1_b6.fq	13.09103437							
+r1	b4	r1_b4	T0	COVID	Mild	Lean	4154942	Tannins	84	y	M	Untreated		r1_b4.fq	13.220886							
+r1	b5	r1_b5	T14	COVID	Mild	Lean	4154942	Tannins	84	y	M	Untreated		r1_b5.fq	13.18833149							
+r1	b2	r1_b2	T0	COVID	Severe	Lean	4153374	Placebo	85	y	M	Untreated		r1_b2.fq	13.21943045							
+r1	b3	r1_b3	T14	COVID	Severe	Lean	4153374	Placebo	85	y	M	Untreated		r1_b3.fq	13.06493651							
+r1	b1	r1_b1	T0	COVID	Severe	Obese	6985487	Placebo	86	y	F	Untreated		r1_b1.fq	13.14216885							
+r12	b21	r12_b21					18544636							r12_b21.fq	12.35769681							
