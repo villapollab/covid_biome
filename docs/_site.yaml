@@ -6,3 +6,9 @@ navbar:
       href: about.html
     - text: "Gut microbiome in Covid-19"
       href: covid_2024.html
+
+output:
+  distill::distill_article:
+    self_contained: false
+
+site_url: https://github.com/villapollab/covid_biome
