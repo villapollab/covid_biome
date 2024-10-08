@@ -258,10 +258,10 @@ __For all microbiome analyses__
 How to pick a threshold? --> Depends on what analysis method you are filtering for!
 
 * Alpha diversity = DO NOT FILTER
-* Beta diversity = relevance of threshold depends on your distance measure (next topic!)
-* Differential abundance testing = stringent filtering, prevalence >5%, >10%? (last topic!)
+* Beta diversity = relevance of threshold depends on your distance measure
+* Differential abundance testing = stringent filtering, prevalence >5%, >10%?
 
-If you're unsure, check out the MicroViz documentation or read some Amy Willis' [statdivlab](https://github.com/statdivlab) papers!
+If you're unsure, check out the [MicroViz documentation](https://david-barnett.github.io/microViz/) or read some Amy Willis' [statdivlab](https://github.com/statdivlab) papers!
 
 ## Alpha Diversity
 The following code chunks will generate Shannon and Simpson diversity, as well as Chao1 richness plots, based on COVID severity levels (or any other covariate of your choice). The code will also assess significant differences between covariate values using the Kruskal-Wallis test followed by Dunn’s post-hoc test.

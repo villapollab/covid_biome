@@ -5,4 +5,4 @@ output:
   distill::distill_article:
     self_contained: false
 
-site_url: https://github.com/villapollab/covid_biome
+site_url: https://github.com/villapollab/covid_biome/
