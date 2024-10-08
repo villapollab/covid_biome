@@ -1,11 +1,5 @@
-navbar:
-  right:
-    - text: "Home"
-      href: index.html
-    - text: "About"
-      href: about.html
-    - text: "Gut microbiome in Covid-19"
-      href: covid_2024.html
+name: "Covid-19 gut microbiome"
+output_dir: "docs" 
 
 output:
   distill::distill_article:
