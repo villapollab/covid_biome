@@ -1,0 +1,198 @@
+Prevotella copri	24.79	84255
+Faecalibacterium prausnitzii	12.95	44028
+Dialister succinatiphilus	9.13	31032
+Dorea longicatena	5.88	19990
+Mitsuokella jalaludinii	4.52	15351
+Escherichia coli	4.04	13747
+Coprococcus comes	3.38	11480
+Blautia luti	3.33	11331
+Blautia sp. SC05B48	3.26	11095
+Mediterraneibacter [Ruminococcus] faecis	2.88	9788
+Acidaminococcus intestini	2.64	8967
+Megasphaera elsdenii	2.6	8825
+Gemmiger formicilis	1.38	4703
+Megasphaera indica	1.02	3461
+Dorea formicigenerans	0.95	3242
+Mediterraneibacter [Ruminococcus] gnavus	0.9	3051
+Blautia wexlerae	0.77	2604
+Allisonella histaminiformans	0.75	2566
+Enterocloster bolteae	0.74	2532
+Dialister hominis	0.66	2245
+Faecalicatena contorta	0.58	1979
+Blautia producta	0.55	1862
+Lachnospiraceae family [Eubacterium] rectale	0.53	1804
+Roseburia inulinivorans	0.5	1699
+Eubacterium coprostanoligenes	0.47	1586
+Dysosmobacter welbionis	0.44	1489
+Lacrimispora saccharolytica	0.44	1487
+Dialister massiliensis	0.38	1283
+Faecalicatena fissicatena	0.38	1283
+Roseburia intestinalis	0.36	1240
+Butyricicoccus faecihominis	0.35	1191
+Eubacterium ramulus	0.34	1159
+Faecalimonas umbilicata	0.33	1137
+Lacrimispora amygdalina	0.32	1089
+Hungatella hathewayi	0.31	1058
+Acidaminococcus fermentans	0.3	1003
+Fusobacterium mortiferum	0.3	1024
+Phocaeicola massiliensis	0.29	983
+Mediterraneibacter [Ruminococcus] lactaris	0.25	843
+Prevotella stercorea	0.25	844
+Phocaeicola plebeius	0.23	783
+Streptococcus thermophilus	0.22	747
+Fusicatenibacter saccharivorans	0.21	719
+Blautia obeum	0.2	670
+Anaerobutyricum hallii	0.2	695
+Lacrimispora indolis	0.18	616
+Negativibacillus massiliensis	0.17	562
+Neglecta timonensis	0.15	522
+Anaerostipes hadrus	0.15	522
+Sutterella wadsworthensis	0.15	525
+Parabacteroides merdae	0.15	504
+Coprococcus catus	0.14	461
+Catenibacterium mitsuokai	0.14	476
+Faecalicatena orotica	0.12	405
+Mediterraneibacter [Ruminococcus] torques	0.12	414
+Blautia glucerasea	0.11	375
+Oscillibacter valericigenes	0.1	333
+Lachnoclostridium sp. YL32	0.1	326
+Oscillibacter sp. PEA192	0.09	289
+Anaeromassilibacillus senegalensis	0.09	305
+Bacteroides stercoris	0.09	290
+Lactobacillus rogosae	0.08	280
+Enterococcus faecium	0.08	266
+Mediterraneibacter glycyrrhizinilyticus	0.08	282
+Roseburia faecis	0.07	243
+Holdemanella biformis	0.07	224
+Agathobaculum butyriciproducens	0.06	194
+Hungatella xylanolytica	0.06	207
+Clostridium paraputrificum	0.06	194
+Lacrimispora sphenoides	0.06	206
+Lachnoclostridium pacaense	0.06	208
+Lachnospiraceae family Lachnospiraceae bacterium GAM79	0.06	202
+Christensenella sp. Marseille-P3954	0.06	200
+Flintibacter sp. KGMB00164	0.05	170
+Subdoligranulum variabile	0.05	176
+Roseburia hominis	0.05	181
+Lachnospiraceae family Lachnospiraceae bacterium Choco86	0.05	177
+Faecalitalea cylindroides	0.05	168
+Haemophilus parainfluenzae	0.05	162
+Phocaeicola vulgatus	0.05	158
+Romboutsia timonensis	0.04	122
+Clostridium saudiense	0.04	138
+Blautia hominis	0.04	137
+Robinsoniella peoriensis	0.04	151
+Bacteroides thetaiotaomicron	0.04	125
+Laceyella sacchari	0.03	104
+Howardella ureilytica	0.03	118
+Caproiciproducens galactitolivorans	0.03	105
+Ruminococcaceae family [Clostridium] methylpentosum	0.03	89
+Ruminococcus sp. JE7A12	0.03	90
+Lachnoclostridium [Clostridium] symbiosum	0.03	107
+Blautia faecis	0.03	97
+Bariatricus massiliensis	0.03	100
+Duodenibacillus massiliensis	0.03	94
+Bacteroides ovatus	0.03	94
+Bacteroides caccae	0.03	116
+Bacteroides xylanisolvens	0.03	101
+Duncaniella sp. B8	0.03	95
+Prevotella paludivivens	0.03	105
+Prevotella shahii	0.03	97
+Collinsella aerofaciens	0.02	79
+Streptococcus salivarius	0.02	73
+Dialister invisus	0.02	56
+Anaerotruncus rubiinfantis	0.02	68
+Phocea massiliensis	0.02	52
+Hydrogenoanaerobacterium saccharovorans	0.02	65
+Clostridium merdae	0.02	64
+Blautia sp. N6H1-15	0.02	57
+Salmonella enterica	0.02	59
+Muribaculum intestinale	0.02	83
+Alistipes putredinis	0.02	56
+Olsenella sp. GAM18	0.01	24
+Collinsella bouchesdurhonensis	0.01	41
+Streptococcus parasanguinis	0.01	20
+Streptococcus milleri	0.01	17
+Streptococcus sp. FDAARGOS_192	0.01	42
+Streptococcus sp. LPB0220	0.01	26
+Lactobacillus sakei	0.01	40
+Lactobacillus curvatus	0.01	18
+Granulicatella elegans	0.01	19
+Mitsuokella multacida	0.01	28
+Selenomonas ruminantium	0.01	44
+Dialister propionicifaciens	0.01	18
+Eubacterium oxidoreducens	0.01	24
+Ihubacter massiliensis	0.01	23
+Massilistercora timonensis	0.01	20
+Intestinimonas butyriciproducens	0.01	40
+Caproiciproducens sp. NJN-50	0.01	23
+Pseudoflavonifractor capillosus	0.01	36
+Ruminococcus gauvreauii	0.01	27
+Fournierella massiliensis	0.01	47
+Sporobacter termitidis	0.01	45
+Flavonifractor plautii	0.01	33
+Drancourtella massiliensis	0.01	21
+Butyricicoccus pullicaecorum	0.01	31
+Clostridium tertium	0.01	17
+Clostridium disporicum	0.01	37
+Clostridium sp. SY8519	0.01	22
+Falcatimonas natans	0.01	33
+Mordavella massiliensis	0.01	46
+Hespellia porcina	0.01	22
+Hespellia stercorisuis	0.01	29
+Eisenbergiella massiliensis	0.01	33
+Lachnospira pectinoschiza	0.01	39
+Lachnospira eligens	0.01	45
+Tyzzerella nexilis	0.01	38
+Coprococcus eutactus	0.01	18
+Anaerotignum aminivorans	0.01	19
+Anaerotignum faecicola	0.01	47
+Lacrimispora xylanolytica	0.01	42
+Lacrimispora aerotolerans	0.01	39
+Lacrimispora algidixylanolytica	0.01	41
+Lachnoclostridium [Clostridium] scindens	0.01	44
+Lachnoclostridium [Clostridium] hylemonae	0.01	26
+Lachnoclostridium phocaeense	0.01	17
+Blautia hydrogenotrophica	0.01	49
+Blautia schinkii	0.01	39
+Blautia stercoris	0.01	23
+Blautia sp. YL58	0.01	48
+Cuneatibacter caecimuris	0.01	34
+Clostridiales order Clostridiales bacterium CCNA10	0.01	44
+Catenisphaera adipataccumulans	0.01	18
+Desulfovibrio piger	0.01	31
+Sutterella faecalis	0.01	17
+Shigella dysenteriae	0.01	33
+Parabacteroides distasonis	0.01	24
+Bacteroides uniformis	0.01	34
+Paraprevotella clara	0.01	27
+Prevotella melaninogenica	0.01	19
+Prevotella oulorum	0.01	21
+Prevotella albensis	0.01	19
+Prevotella jejuni	0.01	20
+Phocaeicola dorei	0.01	23
+Victivallales order Victivallales bacterium CCUG 44730	0	15
+Streptococcus vestibularis	0	12
+Dialister micraerophilus	0	14
+Megasphaera stantonii	0	11
+Veillonella parvula	0	13
+Aminipila butyrica	0	13
+Anaerovorax odorimutans	0	16
+Colidextribacter massiliensis	0	11
+Ruminococcaceae family [Clostridium] viride	0	13
+Papillibacter cinnamivorans	0	16
+Ruminococcaceae family Ruminococcaceae bacterium CPB6	0	10
+Clostridium butyricum	0	16
+Clostridium isatidis	0	15
+Lactonifactor longoviformis	0	11
+Eisenbergiella tayi	0	15
+Butyrivibrio crossotus	0	16
+Blautia hansenii	0	16
+Murimonas intestini	0	15
+Parasutterella excrementihominis	0	16
+Shigella flexneri	0	16
+Shigella sonnei	0	12
+Enterobacter oligotrophica	0	13
+Odoribacter splanchnicus	0	14
+Bacteroides finegoldii	0	13
+Prevotella dentalis	0	12

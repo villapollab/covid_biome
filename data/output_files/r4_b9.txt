@@ -1,0 +1,179 @@
+Phocaeicola plebeius	11.39	53179
+Coprococcus comes	9.73	45462
+Roseburia faecis	8.14	38039
+Blautia luti	7.46	34831
+Phascolarctobacterium faecium	5.61	26195
+Dorea longicatena	4.5	21010
+Blautia sp. SC05B48	4.49	20965
+Mediterraneibacter [Ruminococcus] torques	3.84	17941
+Anaerostipes hadrus	3.15	14714
+Mediterraneibacter [Ruminococcus] gnavus	3.08	14367
+Mediterraneibacter [Ruminococcus] faecis	3.06	14297
+Anaerobutyricum hallii	2.43	11340
+Blautia wexlerae	2.33	10874
+Fusicatenibacter saccharivorans	2.26	10546
+Phocaeicola vulgatus	1.8	8426
+Phocaeicola coprophilus	1.74	8128
+Dorea formicigenerans	1.69	7909
+Dysosmobacter welbionis	1.67	7796
+Eubacterium ramulus	1.65	7692
+Butyricicoccus faecihominis	1.64	7640
+Blautia glucerasea	1.54	7214
+Faecalibacterium prausnitzii	1.48	6934
+Enterocloster bolteae	1.03	4833
+Gemmiger formicilis	1.02	4764
+Bacteroides stercoris	0.98	4583
+Hungatella hathewayi	0.77	3581
+Faecalicatena contorta	0.76	3533
+Roseburia inulinivorans	0.76	3552
+Paraprevotella clara	0.63	2945
+Faecalicatena fissicatena	0.5	2352
+Blautia producta	0.5	2324
+Blautia caecimuris	0.44	2044
+Roseburia intestinalis	0.42	1954
+Faecalimonas umbilicata	0.41	1897
+Blautia obeum	0.4	1845
+Phascolarctobacterium succinatutens	0.37	1710
+Roseburia hominis	0.37	1707
+Agathobaculum desmolans	0.33	1520
+Faecalicatena orotica	0.33	1528
+Mediterraneibacter glycyrrhizinilyticus	0.31	1427
+Bacteroides uniformis	0.27	1244
+Oscillibacter sp. PEA192	0.25	1149
+Lachnoclostridium sp. YL32	0.21	966
+Enterocloster lavalensis	0.16	733
+Blautia faecis	0.16	753
+Blautia hominis	0.16	731
+Coprococcus catus	0.15	683
+Bacteroides caccae	0.15	723
+Flintibacter sp. KGMB00164	0.14	641
+Lachnoclostridium [Clostridium] symbiosum	0.14	648
+Holdemanella biformis	0.14	631
+Allisonella histaminiformans	0.13	613
+Agathobaculum butyriciproducens	0.13	600
+Lacrimispora saccharolytica	0.13	623
+Bacteroides faecis	0.13	600
+Peptococcus niger	0.12	539
+Lachnoclostridium pacaense	0.12	564
+Lachnospiraceae family Lachnospiraceae bacterium Choco86	0.12	580
+Bacteroides cellulosilyticus	0.12	551
+Anaerotignum faecicola	0.11	500
+Bariatricus massiliensis	0.11	491
+Parabacteroides distasonis	0.11	509
+Bacteroides salyersiae	0.11	533
+Streptococcus salivarius	0.1	473
+Streptococcus sp. LPB0220	0.09	421
+Bacteroides xylanisolvens	0.09	425
+Oscillibacter valericigenes	0.08	367
+Blautia sp. YL58	0.08	365
+Phocaeicola dorei	0.07	324
+Alistipes putredinis	0.06	273
+Subdoligranulum variabile	0.05	245
+Neglecta timonensis	0.05	225
+Pseudoflavonifractor phocaeensis	0.04	184
+Eisenbergiella massiliensis	0.04	167
+Lachnospiraceae family [Eubacterium] rectale	0.04	172
+Laceyella sacchari	0.03	142
+Mogibacterium diversum	0.03	150
+Flavonifractor plautii	0.03	117
+Hungatella xylanolytica	0.03	149
+Clostridium sp. SY8519	0.03	118
+Enterocloster aldensis	0.03	152
+Lachnoclostridium [Clostridium] scindens	0.03	119
+Bacteroides thetaiotaomicron	0.03	146
+Collinsella aerofaciens	0.02	83
+Streptococcus thermophilus	0.02	85
+Streptococcus parasanguinis	0.02	115
+Eubacterium oxidoreducens	0.02	78
+Ruthenibacterium lactatiformans	0.02	78
+Enterocloster citroniae	0.02	111
+Lacrimispora amygdalina	0.02	100
+Blautia sp. N6H1-15	0.02	79
+Clostridiales order Clostridiales bacterium CCNA10	0.02	93
+Erysipelatoclostridium ramosum	0.02	72
+Eggerthella lenta	0.01	63
+Lactococcus lactis	0.01	52
+Granulicatella elegans	0.01	62
+Veillonella parvula	0.01	50
+Aminipila butyrica	0.01	24
+Ihubacter massiliensis	0.01	25
+Massilistercora timonensis	0.01	29
+Colidextribacter massiliensis	0.01	27
+Peptococcus simiae	0.01	25
+Pseudoflavonifractor capillosus	0.01	32
+Phocea massiliensis	0.01	55
+Fournierella massiliensis	0.01	37
+Sporobacter termitidis	0.01	35
+Hydrogenoanaerobacterium saccharovorans	0.01	48
+Butyricicoccus pullicaecorum	0.01	32
+Lactonifactor longoviformis	0.01	35
+Mordavella massiliensis	0.01	30
+Hespellia stercorisuis	0.01	34
+Tyzzerella nexilis	0.01	41
+Enterocloster asparagiformis	0.01	31
+Anaerotignum aminivorans	0.01	55
+Lacrimispora sphenoides	0.01	24
+Lacrimispora indolis	0.01	32
+Blautia hansenii	0.01	40
+Blautia coccoides	0.01	34
+Blautia hydrogenotrophica	0.01	43
+Blautia schinkii	0.01	58
+Lachnospiraceae family Lachnospiraceae bacterium GAM79	0.01	38
+Caecibacterium sporoformans	0.01	47
+Anaerotaenia torta	0.01	40
+Robinsoniella peoriensis	0.01	56
+Desulfovibrio desulfuricans	0.01	25
+Desulfovibrio piger	0.01	30
+Parabacteroides sp. CT06	0.01	53
+Odoribacter splanchnicus	0.01	70
+Bacteroides rodentium	0.01	36
+Bacteroides mediterraneensis	0.01	24
+Alistipes onderdonkii	0.01	27
+Victivallis vadensis	0	14
+Victivallales order Victivallales bacterium CCUG 44730	0	15
+Streptococcus oralis	0	19
+Streptococcus mutans	0	18
+Streptococcus sobrinus	0	10
+Streptococcus vestibularis	0	13
+Streptococcus mitis	0	22
+Streptococcus sp. I-G2	0	14
+Lactobacillus salivarius	0	11
+Abiotrophia defectiva	0	15
+Gemella haemolysans	0	13
+Gemella sanguinis	0	19
+Veillonella dispar	0	14
+Eubacterium limosum	0	21
+Anaerovorax odorimutans	0	20
+Emergencia timonensis	0	14
+Intestinimonas butyriciproducens	0	14
+Caproiciproducens galactitolivorans	0	20
+Caproiciproducens sp. NJN-50	0	21
+Anaerotruncus rubiinfantis	0	21
+Ruminococcaceae family [Clostridium] leptum	0	17
+Ruminococcaceae family [Clostridium] methylpentosum	0	13
+Ruminococcus gauvreauii	0	12
+Paludicola psychrotolerans	0	11
+Papillibacter cinnamivorans	0	15
+Drancourtella massiliensis	0	15
+Anaeromassilibacillus senegalensis	0	17
+Hungatella effluvii	0	17
+Falcatimonas natans	0	12
+Hespellia porcina	0	17
+Eisenbergiella tayi	0	16
+Anaerostipes rhamnosivorans	0	13
+Butyrivibrio crossotus	0	19
+Mediterraneibacter [Ruminococcus] lactaris	0	10
+Lacrimispora celerecrescens	0	16
+Lacrimispora xylanolytica	0	16
+Lacrimispora algidixylanolytica	0	10
+Lachnoclostridium [Clostridium] hylemonae	0	16
+Lachnospiraceae family Lachnospiraceae bacterium KGMB03038	0	13
+Murimonas intestini	0	19
+Syntrophococcus sucromutans	0	16
+Clostridiales order Clostridiales bacterium	0	18
+Christensenella massiliensis	0	18
+Parabacteroides goldsteinii	0	11
+Parabacteroides chongii	0	12
+Bacteroides intestinalis	0	18
+Bacteroides clarus	0	11
+Alistipes indistinctus	0	15
