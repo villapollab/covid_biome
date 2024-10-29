@@ -1,0 +1,13 @@
+@Total Number of Nodes: 116
+@Total number of drivers: 11
+Anaerostipes_hadrus
+Coprococcus_catus
+Coprococcus_eutactus
+Enterococcus_faecium
+Faecalibacterium_prausnitzii
+Lactobacillus_ruminis
+Mitsuokella_jalaludinii
+Paraprevotella_clara
+Roseburia_inulinivorans
+Ruminococcus_bromii
+Streptococcus_salivarius

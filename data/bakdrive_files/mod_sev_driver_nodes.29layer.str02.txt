@@ -1,0 +1,13 @@
+@Total Number of Nodes: 109
+@Total number of drivers: 11
+Bacteroides_faecis
+Blautia_obeum
+Dorea_formicigenerans
+Enterococcus_faecium
+Escherichia_coli
+Faecalibacterium_prausnitzii
+Flavonifractor_plautii
+Lactobacillus_mucosae
+Megamonas_funiformis
+Roseburia_inulinivorans
+Succinivibrio_dextrinosolvens

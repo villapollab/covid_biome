@@ -16,7 +16,7 @@ output:
 ---
 ## Introduction
 
-This vignette contains all of the code necessary for the microbiome analysis within our paper named "". In this study, we researched the relationship between Covid-19 and the gut microbiome as well as connections to mental health. The gut microbiome analysis of this study was performed through long-read 16S sequencing we performed within our lab at Houston Methodist Research Institute and raw fastq data can be found at BioProject #___.
+This vignette contains all of the code necessary for the microbiome analysis within our paper named "Microbiome dynamics, Immune Response, and Neuropsychological Symptoms in COVID-19 patients". In this study, we researched the relationship between Covid-19 and the gut microbiome as well as connections to mental health. The gut microbiome analysis of this study was performed through long-read 16S sequencing we performed within our lab at Houston Methodist Research Institute and raw fastq data can be found at BioProject [PRJNA1179392](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1179392).
 
 Much of the data and visualizations here had slight visual touching up in photoshop/coreldraw just to make them look _perf_ prior to submission, so if you see a difference between the figures produced here and those found within our paper that is why.
 
@@ -1134,7 +1134,6 @@ ggsave(filename = "asset/img/spearman_mental_microbe_net.png", units = "in", hei
 
 ![](assets/img/spearman_mental_microbe_net.png)
 
-
 ## Bakdrive analysis 
 
 One last interesting comparisom that we performed between the severity level was with [Bakdrive](https://academic.oup.com/bioinformatics/article/39/Supplement_1/i47/7210449). Bakdrive is a project that I am currently trying to improve upon and we use it here to characterize the differences in driver species between the Covid-19 severity groups.
@@ -1179,7 +1178,7 @@ crit_subset <- prune_samples(crit_subset_samples, vid_crit)
 
 Data prep for bakdrive input abundance files
 
-```{r, eval=FALSE}
+```{r, echo=FALSE, results='hide', code_folding=TRUE, eval = FALSE}
 # Function to convert abundance to percentage
 abundance_to_percentage <- function(x) {
   return(x / sum(x) * 100)
@@ -1249,10 +1248,187 @@ After we made the directory containing our abundance files, I ran this in the co
 find /path/to/directory -type f -print > file_list.txt
 ```
 
-See the documentation on [figure layout](figures.html) for details on additional layout options.
+I ran the BakDrive analysis on my HPC as this is a pretty computationally expensive program, I also used the Gurobi solver for the ILP/QP steps in MICOM (I have access to this through my affiliation with Rice Univeristy). An example of a slurm script used to run this can be seen below:
 
-The examples above are based on conventional R plots. Distill articles can also incorporate [diagrams](diagrams.html) and [interactive visualizations](interactivity.html) based on JavaScript and D3.
+```
+#!/bin/bash
 
+#SBATCH --time=04-00:00:00
+#SBATCH --partition=defq
+#SBATCH --mail-user=agmarshall@houstonmethodist.org
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --ntasks-per-node=36
+#SBATCH --nodes=1
+#SBATCH --job-name=baklow
+#SBATCH --comment=baklow
+
+source bakdrive_agm/bin/activate
+
+python /home/tmhagm8/scratch/bakdrive/bakdrive.py interaction bakdrive_low_sev.txt -d /home/tmhagm8/scratch/bakdrive/dbs -m /home/tmhagm8/scratch/bakdrive/medium.csv -o bakdrive_low_sev_interxt -t 36
+
+# then we add the bakdrive driver afterwards
+
+python /home/tmhagm8/scratch/bakdrive/bakdrive.py driver bakdrive_low_sev_interxt -o bakdrive_low_sev_driver
+```
+
+Finally, to make the chord diagram from the resulting BakDrive driver results.
+
+```{r, echo=FALSE, results='hide', code_folding=TRUE, eval = FALSE}
+
+# Load necessary libraries
+library(circlize)
+library(randomcoloR)
+library(ComplexHeatmap)
+library(grid)
+library(randomcoloR)
+
+# Read in your data
+driver_output1_low <- read.delim("bakdrive_files/low_sev_driver_nodes.22layer.str02.txt", 
+                                 skip = 1, header = TRUE, col.names = "driver_species")
+driver_output2_low <- read.delim("bakdrive_files/low_sev_driver_nodes.31layer.str02.txt", 
+                                 skip = 1, header = TRUE, col.names = "driver_species")
+mod_drivers <- read.delim("bakdrive_files/mod_sev_driver_nodes.29layer.str02.txt", 
+                          skip = 1, header = TRUE, col.names = "driver_species")
+driver_output1_crit <- read.delim("bakdrive_files/crit_sev_driver_nodes.30layer.str02.txt", 
+                                  skip = 1, header = TRUE, col.names = "driver_species")
+driver_output2_crit <- read.delim("bakdrive_files/crit_sev_driver_nodes.35layer.str02.txt", 
+                                  skip = 1, header = TRUE, col.names = "driver_species")
+
+# Extract species names as vectors
+low_drivers <- unique(c(driver_output1_low$driver_species, driver_output2_low$driver_species))
+mod_drivers <- unique(mod_drivers$driver_species)
+crit_drivers <- unique(c(driver_output1_crit$driver_species, driver_output2_crit$driver_species))
+
+# Create a data frame of species and the severity groups they are in
+severity_groups <- c("Low", "Moderate", "Critical")
+df_species <- data.frame(
+  taxa = unique(c(low_drivers, mod_drivers, crit_drivers)),
+  stringsAsFactors = FALSE
+)
+
+# Initialize columns for each severity group
+for (sev in severity_groups) {
+  df_species[[sev]] <- 0
+}
+
+# Mark which species are in each severity group
+df_species$Low[df_species$taxa %in% low_drivers] <- 1
+df_species$Moderate[df_species$taxa %in% mod_drivers] <- 1
+df_species$Critical[df_species$taxa %in% crit_drivers] <- 1
+
+# Create an empty data frame to store edges
+df_edges <- data.frame(from = character(), to = character(), taxa = character(), stringsAsFactors = FALSE)
+
+# Loop over species to create edges
+for (i in 1:nrow(df_species)) {
+  species <- df_species$taxa[i]
+  groups_present <- severity_groups[df_species[i, severity_groups] == 1]
+  
+  if (length(groups_present) >= 2) {
+    # For each combination of groups present, create an edge
+    group_pairs <- combn(groups_present, 2)
+    for (j in 1:ncol(group_pairs)) {
+      df_edges <- rbind(df_edges, data.frame(
+        from = group_pairs[1, j],
+        to = group_pairs[2, j],
+        taxa = species,
+        stringsAsFactors = FALSE
+      ))
+    }
+  } else if (length(groups_present) == 1) {
+    # For species present in only one severity group, create self-links (optional)
+    df_edges <- rbind(df_edges, data.frame(
+      from = groups_present,
+      to = groups_present,
+      taxa = species,
+      stringsAsFactors = FALSE
+    ))
+  }
+}
+
+# Add value column
+df_edges$value <- 1  # Each connection represents one taxa
+
+# Define colors for severity groups (outer ring)
+severity_colors <- c("Low" = "#FDB52D", "Moderate" = "#6666FF", "Critical" = "#FC6666")
+
+set.seed(123)  # For reproducibility
+taxa_list <- unique(df_edges$taxa)
+n <- length(taxa_list)
+
+# Use a larger color palette space and request better separation of colors
+palette <- distinctColorPalette(n)
+names(palette) <- taxa_list
+taxa_colors <- palette
+
+# Map chord colors to taxa
+df_edges$color <- taxa_colors[df_edges$taxa]
+
+# Clear any previous plots
+circos.clear()
+
+# Create the chord diagram without drawing sector labels
+chordDiagram(
+  x = df_edges[, c("from", "to", "value")],
+  grid.col = severity_colors,
+  col = df_edges$color,
+  transparency = 0.25,
+  annotationTrack = "grid",  # Do not automatically add sector labels
+  preAllocateTracks = list(track.height = 0.1)
+)
+
+# Add customized sector labels with larger, bold text
+circos.trackPlotRegion(
+  track.index = 1,
+  panel.fun = function(x, y) {
+    sector_name = get.cell.meta.data("sector.index")
+    xlim = get.cell.meta.data("xlim")
+    ylim = get.cell.meta.data("ylim")
+    circos.text(
+      x = mean(xlim),
+      y = ylim[2] + mm_y(2),  # Place label outside the circle
+      labels = sector_name,
+      facing = "outside",
+      niceFacing = TRUE,
+      adj = c(0.5, 0),
+      cex = 1.5,  # Increase text size
+      font = 2    # Bold font
+    )
+  },
+  bg.border = NA
+)
+
+# Create a legend for taxa colors using ComplexHeatmap with bold and italic fonts
+taxa_legend <- Legend(
+  labels = names(taxa_colors),
+  legend_gp = gpar(fill = taxa_colors),
+  title = "Taxa",
+  ncol = 1,  # Adjust the number of columns if needed
+  grid_height = unit(5, "mm"),
+  grid_width = unit(5, "mm"),
+  labels_gp = gpar(fontsize = 8, fontface = "bold.italic"),
+  title_gp = gpar(fontsize = 10, fontface = "bold")
+)
+
+# Draw the taxa legend
+draw(taxa_legend, x = unit(1, "npc") - unit(5, "mm"), y = unit(1, "npc") - unit(5, "mm"), just = c("right", "top"))
+
+# Add a legend for severity colors with bold and italic fonts
+severity_legend <- Legend(
+  labels = names(severity_colors),
+  legend_gp = gpar(fill = severity_colors),
+  title = "Severity",
+  ncol = 1,
+  grid_height = unit(5, "mm"),
+  grid_width = unit(5, "mm"),
+  labels_gp = gpar(fontsize = 8, fontface = "bold.italic"),
+  title_gp = gpar(fontsize = 10, fontface = "bold")
+)
+
+
+```
+
+![](assets/img/covid_final_bakdrive_chord.png)
 
 
 

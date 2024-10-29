@@ -1,0 +1,14 @@
+@Total Number of Nodes: 113
+@Total number of drivers: 12
+Bacteroides_cellulosilyticus
+Blautia_producta
+Blautia_wexlerae
+Escherichia_coli
+Faecalibacterium_prausnitzii
+Megamonas_hypermegale
+Roseburia_inulinivorans
+Ruminococcus_bicirculans
+Ruminococcus_bromii
+Ruminococcus_champanellensis
+Streptococcus_sanguinis
+Streptococcus_thermophilus
