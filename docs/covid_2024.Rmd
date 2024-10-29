@@ -1,5 +1,5 @@
 ---
-title: "Gut microbiome in Covid-19"
+title: "Microbiome dynamics, Immune Response, and Neuropsychological Symptoms in COVID-19 patients"
 description: |
   A research study focused on observing the links between the Covid-19 and the gut microbiome.
 author:
@@ -1137,8 +1137,6 @@ ggsave(filename = "asset/img/spearman_mental_microbe_net.png", units = "in", hei
 ## Bakdrive analysis 
 
 One last interesting comparisom that we performed between the severity level was with [Bakdrive](https://academic.oup.com/bioinformatics/article/39/Supplement_1/i47/7210449). Bakdrive is a project that I am currently trying to improve upon and we use it here to characterize the differences in driver species between the Covid-19 severity groups.
-
-Bakdrive is quite computationally intensive currently, so we took ten randomly selected samples from each severity level and ran this through our HPC. Also, using the gurobi solver was shown to reduce compute time on the ILPs/QPs so if you run into issues with run times I'd give that a shot.
 
 To create the Bakdrive input files I used this code below. It will select 10 random samples from each severity group.
 
