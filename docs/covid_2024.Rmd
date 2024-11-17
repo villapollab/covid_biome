@@ -1,5 +1,5 @@
 ---
-title: "Microbiome dynamics, Immune Response, and Neuropsychological Symptoms in COVID-19 patients"
+title: "Microbiome dynamics in COVID-19 patients"
 description: |
   A research study focused on observing the links between the Covid-19 and the gut microbiome.
 author:
@@ -16,7 +16,7 @@ output:
 ---
 ## Introduction
 
-This vignette contains all of the code necessary for the microbiome analysis within our paper named "Microbiome dynamics, Immune Response, and Neuropsychological Symptoms in COVID-19 patients". In this study, we researched the relationship between Covid-19 and the gut microbiome as well as connections to mental health. The gut microbiome analysis of this study was performed through long-read 16S sequencing we performed within our lab at Houston Methodist Research Institute and raw fastq data can be found at BioProject [PRJNA1179392](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1179392).
+This vignette contains all of the code necessary for the microbiome analysis within our paper named "Gut microbiome dysbiosis and immune activation correlate with somatic and neuropsychiatric symptoms in COVID-19 patients". In this study, we researched the relationship between Covid-19 and the gut microbiome as well as connections to mental health. The gut microbiome analysis of this study was performed through long-read 16S sequencing we performed within our lab at Houston Methodist Research Institute and raw fastq data can be found at BioProject [PRJNA1179392](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1179392).
 
 Much of the data and visualizations here had slight visual touching up in photoshop/coreldraw just to make them look _perf_ prior to submission, so if you see a difference between the figures produced here and those found within our paper that is why.
 
@@ -58,16 +58,16 @@ The data used in this were from Covid-19 patients of varying age and severity to
 
 ```{r}
 # Lets make a gigantic metadata file joining by DNI
-meta1 = read.csv("data/metadata_124.csv", check.names = FALSE)
+meta1 <- read.csv("data/metadata_124.csv", check.names = FALSE)
 
 # metadata file 2
-meta2 = read.delim("data/metadata_all_PACS.tsv", check.names = FALSE) |>
+meta2 <- read.delim("data/metadata_all_PACS.tsv", check.names = FALSE) |>
   dplyr::select(sample, Time, COVID19, COVID19_severity, BMI, DNI, 
                 Treatment, Age, Old, Sex, Antibiotic, remove_duplicate) |>
   dplyr::mutate_all(~replace(., is.na(.), 0))
 
 # Filter and make it easier for english speakers
-meta = left_join(meta2, meta1, by = "DNI") |>
+meta <- left_join(meta2, meta1, by = "DNI") |>
   dplyr::filter(COVID19 == "COVID" & Time == "T0")|>
   dplyr::mutate_all(~replace(., is.na(.), 0)) |>
   dplyr::filter(ID > 0) |>
@@ -118,11 +118,11 @@ tax_table_df <- as.data.frame(tax_table_physeq) |>
 tax_table_df <- tax_table_df |> rename(emOTU = 1) |> select(emOTU, species)
 
 # read in emu database taxonomy.tsv (change path accordingly)
-taxid = read.delim("/condo/neurobiome/tmhagm8/emu/emu_database/taxonomy.tsv", 
+taxid <- read.delim("/condo/neurobiome/tmhagm8/emu/emu_database/taxonomy.tsv", 
                    header = TRUE, check.names = FALSE) |>
   select(tax_id, species)
 
-tax_map = left_join(taxid, tax_table_df, by = "species") |>
+tax_map <- left_join(taxid, tax_table_df, by = "species") |>
   select(tax_id, emOTU) |>
   filter(emOTU != "")
 
@@ -192,7 +192,7 @@ result2 <- system2(python_path, args = c(script_path, input_tree_file, input_map
 
 ![](assets/img/emOTU_itol_tree.png){style="width: 100%"}
 
-If you want to learn more about how I made this with the proper names simply show the code below.
+If you want to learn more about how I made this with the proper names simply show the code below. (not in our paper)
 
 ```{r, eval=FALSE, code_folding=TRUE}
 species_tree <- read.tree("data/physeq_tree.nwk")
@@ -213,7 +213,7 @@ plot_tree(species_tree, label.tips = "rowname", )
 Now we have our trimmed down tree for us to merge with our phyloseq object.
 
 ```{r, code_folding=TRUE, echo=FALSE}
-unroot_tree = read.tree("data/physeq_tree.nwk")
+unroot_tree <- read.tree("data/physeq_tree.nwk")
 tree <- ape::root(unroot_tree, outgroup = "sp651", resolve.root = TRUE)
 is.rooted(tree)
 
@@ -227,23 +227,23 @@ We end this section by adjusting this phyloseq object using the MicroViz package
 
 ```{r}
 # Remove ASVs that break dis
-pop_taxa = function(physeq, badTaxa){
-  allTaxa = taxa_names(physeq)
+pop_taxa <- function(physeq, badTaxa){
+  allTaxa <- taxa_names(physeq)
   allTaxa <- allTaxa[!(allTaxa %in% badTaxa)]
   return(prune_taxa(allTaxa, physeq))
 }
 
 # ASVs that are no bueno
-badTaxa = c("sp1692")
+badTaxa <- c("sp1692")
 
 # Cleaned up physeq for ancombc
-ps = pop_taxa(physeq, badTaxa)
+ps <- pop_taxa(physeq, badTaxa)
 
 covid <- phyloseq_validate(ps) |>
   tax_fix() 
 
 # round otu counts
-round_covid = round(otu_table(covid))
+round_covid <- round(otu_table(covid))
 
 # Update sample_data in phyloseq object
 bigvid <- phyloseq(round_covid, covid@tax_table, covid@sam_data)
@@ -264,7 +264,7 @@ How to pick a threshold? --> Depends on what analysis method you are filtering f
 If you're unsure, check out the [MicroViz documentation](https://david-barnett.github.io/microViz/) or read some Amy Willis' [statdivlab](https://github.com/statdivlab) papers!
 
 ## Alpha Diversity
-The following code chunks will generate Shannon and Simpson diversity, as well as Chao1 richness plots, based on COVID severity levels (or any other covariate of your choice). The code will also assess significant differences between covariate values using the Kruskal-Wallis test followed by Dunn’s post-hoc test.
+The following code chunks will generate Shannon diverisity and Chao1 richness plots, based on COVID severity levels (or any other covariate of your choice). The code will also assess significant differences between covariate values using the Kruskal-Wallis test followed by Dunn’s post-hoc test.
 
 __Shannon Diversity Calculation and Visualization__
 
@@ -302,7 +302,11 @@ sig_labels <- sapply(shan_p_adjusted, function(p) {
 
 # Create all comparisons for plotting
 comparisons <- combn(severity_levels, 2, simplify = FALSE)
+```
 
+We took the shannon_species value for each severity level and plotted the values in our Prism document.
+
+```{r, code_folding=FALSE, eval=FALSE, warning=FALSE}
 # Create the plot
 ggplot(shan_data, aes(y = PHQ_Covid_Severity, x = shannon_species, fill = PHQ_Covid_Severity)) +
   geom_boxplot(width = 0.3) +
@@ -321,69 +325,12 @@ ggplot(shan_data, aes(y = PHQ_Covid_Severity, x = shannon_species, fill = PHQ_Co
   ) +
   labs(x = "Shannon Diversity (Species)", y = "Covid Severity")
 
-ggsave("assets/img/covid_PHQ_shannon_kruskal.png", height = 7, width = 5, units = "in")
 
+ggsave("/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_PHQ_shannon_kruskal.png", height = 7, width = 5, units = "in")
 ```
+
 
 ![](assets/img/covid_PHQ_shannon_kruskal.png)
-
-__Simpson Diversity Calculation and Visualization__
-
-```{r, code_folding=TRUE, eval=FALSE}
-# Calculate Simpson diversity (Gini-Simpson index)
-simp_data <- vid |>
-  ps_calc_diversity(rank = "species", index = "gini_simpson") |>
-  samdat_tbl()
-
-# Ensure PHQ_Covid_Severity is a factor and set the levels in the correct order
-simp_data$PHQ_Covid_Severity <- factor(simp_data$PHQ_Covid_Severity, 
-                                       levels = c("low", "moderate", "critical"))
-severity_levels <- levels(simp_data$PHQ_Covid_Severity)
-
-# Perform Kruskal-Wallis test for overall comparison
-kruskal_result <- kruskal.test(gini_simpson_species ~ PHQ_Covid_Severity, data = simp_data)
-
-# Perform post-hoc pairwise comparisons (Dunn's test) 
-posthoc_result <- dunnTest(gini_simpson_species ~ PHQ_Covid_Severity, data = simp_data, method = "holm")
-
-# Extract p-values from post-hoc comparisons
-simp_p_adjusted <- posthoc_result$res$P.adj
-
-# Create significance labels
-sig_labels <- sapply(simp_p_adjusted, function(p) {
-  if(p > 0.05) return("ns")
-  if(p <= 0.05 & p > 0.01) return("*")
-  if(p <= 0.01 & p > 0.001) return("**")
-  if(p <= 0.001) return("***")
-})
-
-# Create all comparisons for plotting
-comparisons <- combn(severity_levels, 2, simplify = FALSE)
-
-# Create the plot for Simpson diversity
-ggplot(simp_data, aes(y = PHQ_Covid_Severity, x = gini_simpson_species, fill = PHQ_Covid_Severity)) +
-  geom_boxplot(width = 0.3) +
-  geom_point(position = position_jitter(height = 0.2), alpha = 1, color = "black") +
-  scale_fill_npg() +
-  theme_prism() +
-  coord_flip() +
-  theme(legend.position = "none") +
-  geom_signif(
-    comparisons = comparisons,
-    map_signif_level = TRUE,
-    annotations = sig_labels,
-    y_position = seq(max(simp_data$gini_simpson_species) * 1.05, 
-                     by = 0.1, 
-                     length.out = length(comparisons))
-  ) +
-  labs(x = "Simpson Diversity (Species)", y = "Covid Severity")
-
-# Save the plot
-ggsave("assets/img/covid_PHQ_simpson_kruskal.png", height = 7, width = 5, units = "in")
-
-```
-
-![](assets/img/covid_PHQ_simpson_kruskal.png)
 
 __Chao1 Richness Calculation and Visualization__
 
@@ -414,7 +361,10 @@ sig_labels <- sapply(chao1_p_adjusted, function(p) {
   if(p <= 0.01 & p > 0.001) return("**")
   if(p <= 0.001) return("***")
 })
+```
 
+And to plot this if you choose 
+```{r, code_folding=TRUE, eval=FALSE}
 # Create all comparisons for plotting
 comparisons <- combn(severity_levels, 2, simplify = FALSE)
 
@@ -437,8 +387,7 @@ ggplot(chao1_data, aes(y = PHQ_Covid_Severity, x = chao1_species, fill = PHQ_Cov
   labs(x = "Chao1 Richness (Species)", y = "Covid Severity")
 
 # Save the plot
-ggsave("assets/img/covid_PHQ_chao1_kruskal.png", height = 7, width = 5, units = "in")
-
+ggsave("/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_PHQ_chao1_kruskal.png", height = 7, width = 5, units = "in")
 ```
 
 ![](assets/img/covid_PHQ_chao1_kruskal.png)
@@ -492,67 +441,20 @@ p + ggrepel::geom_text_repel(
   mapping = aes(label = taxon), size = 2.5, min.segment.length = 0, force = 15
 )
 
-# vidStats |>
-#   ggplot(aes(x = total_abundance, y = prevalence)) +
-#   geom_vline(xintercept = 10000, color = "red", linetype = "dotted") +
-#   geom_hline(yintercept = 2 / 100, color = "red", linetype = "dotted") +
-#   geom_point(alpha = 0.5) +
-#   geom_rug(alpha = 0.1) +
-#   scale_x_log10(labels = scales::label_number(), name = "Total Abundance") +
-#   scale_y_log10(
-#     labels = scales::label_percent(), breaks = scales::breaks_log(n = 9),
-#     name = "Prevalence (%)",
-#     sec.axis = sec_axis(
-#       trans = ~ . * nsamples(shao19), breaks = scales::breaks_log(n = 9),
-#       name = "Prevalence (N samples)"
-#     )
-#   ) +
-#   theme_bw()
-
-# this make a plot which does not visualize well but if you blow it up can show per sample variations.
-# vid |>
-#   tax_table() |>
-#   as.data.frame() |>
-#   as_tibble(rownames = "taxon") |>
-#   left_join(vidStats, by = "taxon") |>
-#   add_count(genus, name = "genus_count", sort = TRUE) |>
-#   mutate(phylum = factor(genus, levels = unique(genus))) |> # to fix facet order
-#   mutate(phylum = forcats::fct_lump_n(genus, n = 15)) |>
-#   mutate(phylum = forcats::fct_explicit_na(genus, na_level = "Other")) |>
-#   ggplot(aes(total_abundance, prevalence)) +
-#   geom_vline(xintercept = 10000, color = "red", linetype = "dotted") +
-#   geom_hline(yintercept = 2 / 100, color = "red", linetype = "dotted") +
-#   geom_point(alpha = 0.5, size = 1) +
-#   geom_rug(alpha = 0.2) +
-#   scale_x_log10(
-#     labels = scales::label_log(), breaks = scales::breaks_log(n = 5),
-#     name = "Total Abundance"
-#   ) +
-#   scale_y_log10(
-#     labels = scales::label_percent(), breaks = scales::breaks_log(n = 9),
-#     name = "Prevalence (%)",
-#     sec.axis = sec_axis(
-#       trans = ~ . * nsamples(vid), breaks = scales::breaks_log(n = 9),
-#       name = "Prevalence (N samples)"
-#     )
-#   ) +
-#   facet_wrap("genus") +
-#   theme_bw(10)
-
 # from this analysis we can see that a 2% prevalence filter with a 50 reads abundance filter (only bc full length) would suffice
-ggsave("assets/img/covid_otu_abund_prev.png", width = 7, height = 5, units = "in")
+ggsave("/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_otu_abund_prev.png", width = 7, height = 5, units = "in")
 
 # these params were chosen as a compromise with Amy Willis' advice (STAMPS 2024)
 ```
 
-![](assets/img/covid_otu_abund_prev.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_otu_abund_prev.png)
 
-Subset for differences in BMI and plot using Aitchison distance PCoA
+Now we have an idea on how to filter our data for beta diversity analyses, we start by subsetting for differences in BMI and plot using Aitchison distance PCoA. We also compute the permanova values between groups which was added to the figure later using coreldraw.
 
 ```{r, eval=FALSE}
-vid_low_bmi = subset_samples(vid, PHQ_Covid_Severity == "low" & BMI == "Lean" | BMI == "Obese")
-vid_mod_bmi = subset_samples(vid, PHQ_Covid_Severity == "moderate" & BMI == "Lean" | BMI == "Obese")
-vid_crit_bmi = subset_samples(vid, PHQ_Covid_Severity == "critical" & BMI == "Lean" | BMI == "Obese")
+vid_low_bmi <- subset_samples(vid, PHQ_Covid_Severity == "low" & BMI == "Lean" | BMI == "Obese")
+vid_mod_bmi <- subset_samples(vid, PHQ_Covid_Severity == "moderate" & BMI == "Lean" | BMI == "Obese")
+vid_crit_bmi <- subset_samples(vid, PHQ_Covid_Severity == "critical" & BMI == "Lean" | BMI == "Obese")
 
 vid_low_bmi |>
   tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
@@ -576,36 +478,36 @@ vid_low_bmi |>
 
 ggsave("assets/img/covid_low_bmi_aitch.png", height = 5, width = 7, units = "in")
 
-# recompute distance for permanova --> gotta be a better way
-# bmi_dists <- vid_low_bmi |>
-#   tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
-#   tax_transform(trans = "compositional", rank = "species") |>
-#   dist_calc("aitchison")
-# 
-# # the more permutations you request, the longer it takes
-# # but also the more stable and precise your p-values become
-# bmi_perm <- bmi_dists |>
-#   dist_permanova(
-#     seed = 1234, # for set.seed to ensure reproducibility of random process
-#     n_processes = 1, n_perms = 999, # you should use at least 999!
-#     variables = "BMI"
-#   )
-# 
-# # view the permanova results
-# bmi_permdf = perm_get(bmi_perm) |> as.data.frame()
-# write.table(bmi_permdf, file = "final_covid_plots/covid_low_bmi_aitch_pcoa_permanova.tsv", sep = "\t")
+#recompute distance for permanova
+bmi_dists <- vid_low_bmi |>
+  tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
+  tax_transform(trans = "compositional", rank = "species") |>
+  dist_calc("aitchison")
+
+# the more permutations you request, the longer it takes
+# but also the more stable and precise your p-values become
+bmi_perm <- bmi_dists |>
+  dist_permanova(
+    seed = 1234, # for set.seed to ensure reproducibility of random process
+    n_processes = 1, n_perms = 999, # you should use at least 999!
+    variables = "BMI"
+  )
+
+# view the permanova results
+bmi_permdf <- perm_get(bmi_perm) |> as.data.frame()
+write.table(bmi_permdf, file = "final_covid_plots/covid_low_bmi_aitch_pcoa_permanova.tsv", sep = "\t")
 
 ```
 
-![](assets/img/covid_low_bmi_aitch.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_low_bmi_aitch.png)
 
 The same style of plot but observing gender differences
 
 ```{r, code_folding=TRUE, eval=FALSE}
 
-vid_low_sex = subset_samples(vid, PHQ_Covid_Severity == "low")
-vid_mod_sex = subset_samples(vid, PHQ_Covid_Severity == "moderate")
-vid_crit_sex = subset_samples(vid, PHQ_Covid_Severity == "critical")
+vid_low_sex <- subset_samples(vid, PHQ_Covid_Severity == "low")
+vid_mod_sex <- subset_samples(vid, PHQ_Covid_Severity == "moderate")
+vid_crit_sex <- subset_samples(vid, PHQ_Covid_Severity == "critical")
 
 vid_low_sex |>
   tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
@@ -629,36 +531,36 @@ vid_low_sex |>
 
 ggsave("assets/img/covid_low_sex_aitch.png", height = 5, width = 7, units = "in")
 
-# recompute distance for permanova --> gotta be a better way
-# sex_dists <- vid_low_sex |>
-#   tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
-#   tax_transform(trans = "compositional", rank = "species") |>
-#   dist_calc("aitchison")
-# 
-# # the more permutations you request, the longer it takes
-# # but also the more stable and precise your p-values become
-# sex_perm <- sex_dists |>
-#   dist_permanova(
-#     seed = 1234, # for set.seed to ensure reproducibility of random process
-#     n_processes = 1, n_perms = 999, # you should use at least 999!
-#     variables = "Sex"
-#   )
-# 
-# # view the permanova results
-# sex_permdf = perm_get(sex_perm) |> as.data.frame()
-# write.table(sex_permdf, file = "final_covid_plots/covid_low_sex_aitch_pcoa_permanova.tsv", sep = "\t")
+# recompute distance for permanova
+sex_dists <- vid_low_sex |>
+  tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
+  tax_transform(trans = "compositional", rank = "species") |>
+  dist_calc("aitchison")
+
+# the more permutations you request, the longer it takes
+# but also the more stable and precise your p-values become
+sex_perm <- sex_dists |>
+  dist_permanova(
+    seed = 1234, # for set.seed to ensure reproducibility of random process
+    n_processes = 1, n_perms = 999, # you should use at least 999!
+    variables = "Sex"
+  )
+
+# view the permanova results
+sex_permdf = perm_get(sex_perm) |> as.data.frame()
+write.table(sex_permdf, file = "final_covid_plots/covid_low_sex_aitch_pcoa_permanova.tsv", sep = "\t")
 ```
 
-![](assets/img/covid_low_sex_aitch.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_low_sex_aitch.png)
 
 And for the age of the individuals, we chose to filer by less than 60 or greater than or equal to 60.
 
 ```{r, code_folding=TRUE, eval=FALSE}
 # low, mod, and crit refer to their COVID severity not their age
 
-vid_low_age = subset_samples(vid, PHQ_Covid_Severity == "low" & Old == "y" | Old == "n")
-vid_mod_age = subset_samples(vid, PHQ_Covid_Severity == "moderate" & Old == "y" | Old == "n")
-vid_crit_age = subset_samples(vid, PHQ_Covid_Severity == "critical" & Old == "y" | Old == "n")
+vid_low_age <- subset_samples(vid, PHQ_Covid_Severity == "low" & Old == "y" | Old == "n")
+vid_mod_age <- subset_samples(vid, PHQ_Covid_Severity == "moderate" & Old == "y" | Old == "n")
+vid_crit_age <- subset_samples(vid, PHQ_Covid_Severity == "critical" & Old == "y" | Old == "n")
 
 vid_low_age |>
   tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
@@ -683,30 +585,30 @@ vid_low_age |>
 ggsave("assets/img/covid_low_old_aitch.png", height = 5, width = 7, units = "in")
 
 # recompute distance for permanova
-# old_dists <- vid_crit_age |>
-#   tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
-#   tax_transform(trans = "compositional", rank = "species") |>
-#   dist_calc("aitchison")
-# 
-# # the more permutations you request, the longer it takes
-# # but also the more stable and precise your p-values become
-# old_perm <- old_dists |>
-#   dist_permanova(
-#     seed = 1234, # for set.seed to ensure reproducibility of random process
-#     n_processes = 1, n_perms = 999, # you should use at least 999!
-#     variables = "Old"
-#   )
-# 
-# # view the permanova results
-# old_permdf = perm_get(old_perm) |> as.data.frame()
-# write.table(old_permdf, file = "final_covid_plots/covid_crit_old_aitch_pcoa_permanova.tsv", sep = "\t")
+old_dists <- vid_crit_age |>
+  tax_filter(min_prevalence = 2 / 100, verbose = FALSE, min_total_abundance = 50) |>
+  tax_transform(trans = "compositional", rank = "species") |>
+  dist_calc("aitchison")
+
+# the more permutations you request, the longer it takes
+# but also the more stable and precise your p-values become
+old_perm <- old_dists |>
+  dist_permanova(
+    seed = 1234, # for set.seed to ensure reproducibility of random process
+    n_processes = 1, n_perms = 999, # you should use at least 999!
+    variables = "Old"
+  )
+
+# view the permanova results
+old_permdf = perm_get(old_perm) |> as.data.frame()
+write.table(old_permdf, file = "final_covid_plots/covid_crit_old_aitch_pcoa_permanova.tsv", sep = "\t")
 ```
 
-![](assets/img/covid_low_old_aitch.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_low_old_aitch.png)
 
 ## Relative abundance plots (ol' faithful)
 
-Super useful to make your own palette and assign to certain taxa, this helps your viewers understand trends in this data.
+Super useful to make your own palette and assign to certain taxa, this helps your viewers understand trends in this data. I altered this figure in coreldraw to widen it out and turn it vertically (with the facet labels).
 
 ```{r, echo=FALSE, eval=FALSE}
 # Make your custom color palette
@@ -716,7 +618,7 @@ myPal <- tax_palette(
 )
 tax_palette_plot(myPal)
 
-vid %>%
+vid |>
   comp_barplot(
     tax_level = "genus", n_taxa = 10,
     taxa_order = sum,
@@ -729,23 +631,26 @@ vid %>%
   coord_flip() +
   theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
 
-ggsave("assets/img/relabund_genus.png", height = 5, width = 7, units = "in")
+ggsave("/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/relabund_genus.png", height = 5, width = 7, units = "in")
 ```
 
-![](assets/img/relabund_genus.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/relabund_genus.png)
 
 ## Comparing the top microbes found in different severity states
 
-Heatmap of abundance with severity states
+Heatmap of abundance with severity states, this is a heavily filtered subset but is needed for this type of figure. I prettied this up in coreldraw just by removing the legend and changing the order of the samples (low -> moderate -> critical).
 
 ```{r, eval = FALSE}
 # Define the colors for PHQ_Covid_Severity levels
 cols <- c("low" = "#FDB52D", "moderate" = "#6666FF", "critical" = "#FC6666")
 
-# Create heatmap 
-vid |>
-  ps_seriate(rank = "species", tax_transform = "clr", dist = "euclidean") |>
-  ps_arrange(PHQ_Covid_Severity) |>
+names(cols) <- unique(samdat_tbl(vid)$PHQ_Covid_Severity)
+
+vid %>%
+  # sort all samples by similarity
+  ps_seriate(rank = "species", tax_transform = "clr", dist = "euclidean") %>% 
+  # arrange the samples into Disease State groups
+  ps_arrange(PHQ_Covid_Severity) %>% 
   tax_transform("clr", rank = "species") |>
   tax_filter(min_prevalence = 75 / 100, verbose = FALSE, min_total_abundance = 100000) |>
   comp_heatmap(
@@ -753,39 +658,39 @@ vid |>
       Prev. = anno_tax_prev(bar_width = 0.3, size = grid::unit(1, "cm"))
     ),
     sample_anno = sampleAnnotation(
-      State1 = anno_sample_cat(var = "PHQ_Covid_Severity", col = cols),  # Annotate the severity levels
-      border = FALSE
+      Severity = anno_sample("PHQ_Covid_Severity"),
+      col = list(Severity = cols), border = FALSE
     ),
-    sample_seriation = "Identity",  # Disable additional seriation to preserve the group order
-    heatmap_legend_param = list(title = "CLR abundance")
+    colors = heat_palette(palette = "RdBu", rev = TRUE),
+    sample_seriation = "Identity" # suppress sample reordering
   )
 
-ggsave("assets/img/sev_htmp_species.png", height = 5, width = 7, units = "in")
+ggsave("/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/sev_htmp_species.png", height = 5, width = 7, units = "in")
 
 # i just ran it in a separate r script and used the plots tab to save as a pdf
 ```
 
-![](assets/img/sev_htmp_species.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/sev_htmp_species.png)
 
 ## Differential abudance analysis using ANCOMBC2
 
-Differential abundance analysis for severity levels. I did cheat for these and write the outputs to a csv file and visualize them using prism but this is more than possible in R. I recommend using the ANCOMBC2 bioconductor [tutorial](https://www.bioconductor.org/packages/release/bioc/vignettes/ANCOMBC/inst/doc/ANCOMBC2.html) to do this if you so please.
+Differential abundance analysis for the three severity levels we investigated. For this analysis I wrote the outputs to a csv file and visualized them using prism but this is more than possible in R. I recommend using the ANCOMBC2 bioconductor [tutorial](https://www.bioconductor.org/packages/release/bioc/vignettes/ANCOMBC/inst/doc/ANCOMBC2.html) to do this if you so please.
 
 ```{r, eval = FALSE}
 # round otu counts, we do this for our other analyses to keep consistent
-round_covid = round(otu_table(physeq))
+round_covid <- round(otu_table(physeq))
 
 # Update sample_data in phyloseq object
 bigvid <- phyloseq(round_covid, physeq@tax_table, physeq@sam_data)
 
 # Subset to get rid of the None values for BMI
-goodvid = subset_samples(bigvid, BMI == "Lean" | BMI == "Obese")
+goodvid <- subset_samples(bigvid, BMI == "Lean" | BMI == "Obese")
 
 # Read in phyloseq for ancombc
 tse <- mia::makeTreeSummarizedExperimentFromPhyloseq(goodvid)
 
 # Subset to low, moderate, and critical severity subjects
-tse = tse[, tse$PHQ_Covid_Severity %in% c("low", "moderate", "critical")]
+tse <- tse[, tse$PHQ_Covid_Severity %in% c("low", "moderate", "critical")]
 
 # To manually change the reference level, for instance, setting `low`
 # as the reference level, use:
@@ -835,7 +740,7 @@ Differential abundance analysis for mental health conditions
 
 ```{r, eval = FALSE, message=FALSE}
 # round otu counts (should already be done)
-round_covid = round(otu_table(physeq))
+round_covid <- round(otu_table(physeq))
 
 # Update sample_data in phyloseq object
 bigvid <- phyloseq(round_covid, physeq@tax_table, physeq@sam_data)
@@ -844,7 +749,7 @@ bigvid <- phyloseq(round_covid, physeq@tax_table, physeq@sam_data)
 tse <- mia::makeTreeSummarizedExperimentFromPhyloseq(bigvid)
 
 # Subset to lean, overweight, and obese subjects
-tse = tse[, tse$PSS_state %in% c("n", "y")]
+tse <- tse[, tse$PSS_state %in% c("n", "y")]
 
 # To manually change the reference level, for instance, setting `obese`
 # as the reference level, use:
@@ -892,10 +797,8 @@ write.csv(res_prim3, file = "ancombc2_files/24_09_16_covid_allmental_group_depre
 
 ## Mental health correlations to microbes 
 
-```{r, eval=FALSE, message=FALSE}
-vid_mental = ps_filter(vid, Somatization != "NA")
-
-#View(sample_data(vid_mental))
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+vid_mental <- ps_filter(vid, Somatization != "NA")
 
 desired_order <- c("Somatization", "Stress", "Anxiety", "Depression")
 
@@ -960,23 +863,23 @@ correlations_df |>
     )
   )
 
-#ggsave("assets/img/vid_mental_microbe_corr_w_sig.png", height = 14, width = 12, units = "in")
+#ggsave("/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/vid_mental_microbe_corr_w_sig.png", height = 14, width = 12, units = "in")
 
 ```
 
 
-![](assets/img/vid_mental_microbe_corr_w_sig.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/vid_mental_microbe_corr_w_sig.png)
 
 
 ## Redundancy analysis (RDA) for mental health connections
 
 ```{r, eval=FALSE, layout="l-body-outset", fig.width=6, fig.height=5}
 
-# using the correlations that have p < 0.05 from the mental health subjects
-mental_correls = correlations_df |>
+# using the correlations that have p < 0.05 from the mental health subjects (this correlations_df was run in the previous chunk)
+mental_correls <- correlations_df |>
   filter(p.value < 0.05)
 
-vid_mental = ps_filter(vid, Somatization != "NA")
+vid_mental <- ps_filter(vid, Somatization != "NA")
 
 sig_mental_microbes = subset_taxa(vid_mental, species %in% mental_correls$taxon) |>
   tax_filter(min_prevalence = 5 / 100, verbose = FALSE, min_total_abundance = 5000)
@@ -1034,30 +937,30 @@ sig_mental_microbes |>
     plot.title = element_text(size = 14)
   )
 
-ggsave("assets/img/covid_mental_rda_phq.png", height = 5, width = 7, units = "in")
+ggsave("/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_mental_rda_phq.png", height = 5, width = 7, units = "in")
 
 ```
 
-![](assets/img/covid_mental_rda_phq.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/covid_mental_rda_phq.png)
 
 
 ## Microbial network interactions with Spiec-Easi
 
-This step can be very computationally intensive if performed on a large dataset like this. To run this, I subset my phyloseq object __vid__ to only include the microbes that were with the mental health spearmans correlations where p < 0.05
+This step can be very computationally intensive if performed on a large dataset like this. To run this, I subset my phyloseq object __vid__ to only include the microbes that were with the mental health Spearman's correlations where p < 0.05 (using the correlations_df dataframe from before).
 
 I wrote a command line script to do this and ran it in a tmux terminal. Here is my file I used if you are interested, please adjust the ```ncores``` value accordingly.
 
 ```{r, eval = FALSE}
-vid_mental = ps_filter(vid, Somatization != "NA")
+vid_mental <- ps_filter(vid, Somatization != "NA")
 
-# using the correlations that have p < 0.05 from the mental health subjects
-mental_correls = correlations_df |>
+# using the correlations that have p < 0.05 from the mental health subjects (this correlations_df was run in the previous chunk)
+mental_correls <- correlations_df |>
   filter(p.value < 0.05)
 
-sig_mental_microbes = subset_taxa(vid_mental, species %in% mental_correls$taxon) |>
+sig_mental_microbes <- subset_taxa(vid_mental, species %in% mental_correls$taxon) |>
   tax_filter(min_prevalence = 5 / 100, verbose = FALSE, min_total_abundance = 5000)
 
-saveRDS(sig_mental_microbes, file = "network_files/sig_mental_microbes.rds")
+saveRDS(sig_mental_microbes, file = "/condo/neurobiome/tmhagm8/covid/covid_2024/data/network_files/sig_mental_microbes.rds")
 ```
 
 And the R executable script
@@ -1108,9 +1011,9 @@ cat("Spiec-Easi network analysis complete. Results saved to", output_file, "\n")
 I used this R code to visualize the .rds file computed from the executable R file.
 
 ```{r, eval = FALSE}
-se_mental = readRDS("network_files/sig_mental_microbes_spiec_easi_result.rds")
+se_mental <- readRDS("network_files/sig_mental_microbes_spiec_easi_result.rds")
 
-otu_spec_map = read.csv("covid_otu_map.csv") |>
+otu_spec_map <- read.csv("covid_otu_map.csv") |>
   select(OTU, species)
 
 # Convert the species_mapping dataframe to a named vector for easy lookup
@@ -1132,49 +1035,13 @@ ggsave(filename = "asset/img/spearman_mental_microbe_net.png", units = "in", hei
 
 ```
 
-![](assets/img/spearman_mental_microbe_net.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/spearman_mental_microbe_net.png)
 
 ## Bakdrive analysis 
 
-One last interesting comparisom that we performed between the severity level was with [Bakdrive](https://academic.oup.com/bioinformatics/article/39/Supplement_1/i47/7210449). Bakdrive is a project that I am currently trying to improve upon and we use it here to characterize the differences in driver species between the Covid-19 severity groups.
+One last interesting comparison that we performed between the severity level was with [Bakdrive](https://academic.oup.com/bioinformatics/article/39/Supplement_1/i47/7210449). Bakdrive is a project that I am currently trying to improve upon and we use it here to characterize the differences in driver species between the Covid-19 severity groups.
 
-To create the Bakdrive input files I used this code below. It will select 10 random samples from each severity group.
-
-```{r, eval=FALSE}
-# subset the phyloseq object based on severity 
-vid_low = ps_filter(vid, PHQ_Covid_Severity == "low")
-vid_mod = ps_filter(vid, PHQ_Covid_Severity == "moderate")
-vid_crit = ps_filter(vid, PHQ_Covid_Severity == "critical")
-
-# Set a seed
-set.seed(42)
-# Get the sample names from the phyloseq object
-low_sample_names <- sample_names(vid_low)
-# Randomly select 5 sample names
-low_subset_samples <- sample(low_sample_names, 10)
-# Subset the phyloseq object to these 5 samples
-low_subset <- prune_samples(low_subset_samples, vid_low)
-
-# Set a seed
-set.seed(42)
-# Get the sample names from the phyloseq object
-mod_sample_names <- sample_names(vid_mod)
-# Randomly select 5 sample names
-mod_subset_samples <- sample(mod_sample_names, 10)
-# Subset the phyloseq object to these 5 samples
-mod_subset <- prune_samples(mod_subset_samples, vid_mod)
-
-# Set a seed
-set.seed(42)
-# Get the sample names from the phyloseq object
-crit_sample_names <- sample_names(vid_crit)
-# Randomly select 5 sample names
-crit_subset_samples <- sample(crit_sample_names, 10)
-# Subset the phyloseq object to these 5 samples
-crit_subset <- prune_samples(crit_subset_samples, vid_crit)
-```
-
-Data prep for bakdrive input abundance files
+To create the Bakdrive input files I used this code below for each sample within each Covid-19 severity group.
 
 ```{r, echo=FALSE, results='hide', code_folding=TRUE, eval = FALSE}
 # Function to convert abundance to percentage
@@ -1253,7 +1120,7 @@ I ran the BakDrive analysis on my HPC as this is a pretty computationally expens
 
 #SBATCH --time=04-00:00:00
 #SBATCH --partition=defq
-#SBATCH --mail-user=agmarshall@houstonmethodist.org
+#SBATCH --mail-user=myemail@email.org
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --ntasks-per-node=36
 #SBATCH --nodes=1
@@ -1262,171 +1129,131 @@ I ran the BakDrive analysis on my HPC as this is a pretty computationally expens
 
 source bakdrive_agm/bin/activate
 
-python /home/tmhagm8/scratch/bakdrive/bakdrive.py interaction bakdrive_low_sev.txt -d /home/tmhagm8/scratch/bakdrive/dbs -m /home/tmhagm8/scratch/bakdrive/medium.csv -o bakdrive_low_sev_interxt -t 36
+python /path/to/bakdrive/bakdrive.py interaction bakdrive_low_sev.txt -d /path/to/bakdrive/dbs -m /path/to/bakdrive/medium.csv -o bakdrive_low_sev_interxt -t 36
 
 # then we add the bakdrive driver afterwards
 
-python /home/tmhagm8/scratch/bakdrive/bakdrive.py driver bakdrive_low_sev_interxt -o bakdrive_low_sev_driver
+python /path/to/bakdrive/bakdrive.py driver bakdrive_low_sev_interxt -o bakdrive_low_sev_driver
 ```
 
-Finally, to make the chord diagram from the resulting BakDrive driver results.
+Finally, to make the venn diagram from the resulting BakDrive driver results.
 
 ```{r, echo=FALSE, results='hide', code_folding=TRUE, eval = FALSE}
 
 # Load necessary libraries
-library(circlize)
-library(randomcoloR)
-library(ComplexHeatmap)
+library(VennDiagram)
 library(grid)
-library(randomcoloR)
+library(gridExtra)
 
-# Read in your data
-driver_output1_low <- read.delim("bakdrive_files/low_sev_driver_nodes.22layer.str02.txt", 
-                                 skip = 1, header = TRUE, col.names = "driver_species")
-driver_output2_low <- read.delim("bakdrive_files/low_sev_driver_nodes.31layer.str02.txt", 
-                                 skip = 1, header = TRUE, col.names = "driver_species")
-mod_drivers <- read.delim("bakdrive_files/mod_sev_driver_nodes.29layer.str02.txt", 
-                          skip = 1, header = TRUE, col.names = "driver_species")
-driver_output1_crit <- read.delim("bakdrive_files/crit_sev_driver_nodes.30layer.str02.txt", 
-                                  skip = 1, header = TRUE, col.names = "driver_species")
-driver_output2_crit <- read.delim("bakdrive_files/crit_sev_driver_nodes.35layer.str02.txt", 
-                                  skip = 1, header = TRUE, col.names = "driver_species")
-
-# Extract species names as vectors
-low_drivers <- unique(c(driver_output1_low$driver_species, driver_output2_low$driver_species))
-mod_drivers <- unique(mod_drivers$driver_species)
-crit_drivers <- unique(c(driver_output1_crit$driver_species, driver_output2_crit$driver_species))
-
-# Create a data frame of species and the severity groups they are in
-severity_groups <- c("Low", "Moderate", "Critical")
-df_species <- data.frame(
-  taxa = unique(c(low_drivers, mod_drivers, crit_drivers)),
-  stringsAsFactors = FALSE
-)
-
-# Initialize columns for each severity group
-for (sev in severity_groups) {
-  df_species[[sev]] <- 0
+# Function to read and process driver files
+read_driver_file <- function(file_path) {
+  species_data <- read.delim(file_path, 
+                             skip = 2,  
+                             header = FALSE, 
+                             stringsAsFactors = FALSE)
+  genera <- sapply(strsplit(species_data$V1, "_"), `[`, 1)
+  return(unique(genera))
 }
 
-# Mark which species are in each severity group
-df_species$Low[df_species$taxa %in% low_drivers] <- 1
-df_species$Moderate[df_species$taxa %in% mod_drivers] <- 1
-df_species$Critical[df_species$taxa %in% crit_drivers] <- 1
+# Read and process all files
+low_drivers1 <- read_driver_file("data/bakdrive_files/low_sev_driver_nodes.22layer.str02.txt")
+low_drivers2 <- read_driver_file("data/bakdrive_files/low_sev_driver_nodes.31layer.str02.txt")
+mod_drivers <- read_driver_file("data/bakdrive_files/mod_sev_driver_nodes.29layer.str02.txt")
+crit_drivers1 <- read_driver_file("data/bakdrive_files/crit_sev_driver_nodes.30layer.str02.txt")
+crit_drivers2 <- read_driver_file("data/bakdrive_files/crit_sev_driver_nodes.35layer.str02.txt")
 
-# Create an empty data frame to store edges
-df_edges <- data.frame(from = character(), to = character(), taxa = character(), stringsAsFactors = FALSE)
+# Combine the drivers for each severity level
+low_genera <- unique(c(low_drivers1, low_drivers2))
+mod_genera <- unique(mod_drivers)
+crit_genera <- unique(c(crit_drivers1, crit_drivers2))
 
-# Loop over species to create edges
-for (i in 1:nrow(df_species)) {
-  species <- df_species$taxa[i]
-  groups_present <- severity_groups[df_species[i, severity_groups] == 1]
-  
-  if (length(groups_present) >= 2) {
-    # For each combination of groups present, create an edge
-    group_pairs <- combn(groups_present, 2)
-    for (j in 1:ncol(group_pairs)) {
-      df_edges <- rbind(df_edges, data.frame(
-        from = group_pairs[1, j],
-        to = group_pairs[2, j],
-        taxa = species,
-        stringsAsFactors = FALSE
-      ))
-    }
-  } else if (length(groups_present) == 1) {
-    # For species present in only one severity group, create self-links (optional)
-    df_edges <- rbind(df_edges, data.frame(
-      from = groups_present,
-      to = groups_present,
-      taxa = species,
-      stringsAsFactors = FALSE
-    ))
+# Create the Venn diagram
+venn.plot <- draw.triple.venn(
+  area1 = length(low_genera),
+  area2 = length(mod_genera),
+  area3 = length(crit_genera),
+  n12 = length(intersect(low_genera, mod_genera)),
+  n23 = length(intersect(mod_genera, crit_genera)),
+  n13 = length(intersect(low_genera, crit_genera)),
+  n123 = length(intersect(intersect(low_genera, mod_genera), crit_genera)),
+  category = c("Low", "Moderate", "Critical"),
+  fill = c("#FDB52D", "#6666FF", "#FC6666"),
+  col = c("black", "black", "black"),
+  alpha = 0.75,
+  label.col = rep("transparent", 7),  # Make number labels transparent
+  cex = 2,
+  cat.cex = 2,
+  cat.col = c("black", "black", "black"),
+  cat.dist = 0.05,
+  euler.d = TRUE,
+  scaled = TRUE
+)
+
+# Function to get elements unique to each section
+get_section_elements <- function(set1, set2, set3, section) {
+  if (section == "low_only") {
+    return(setdiff(set1, union(set2, set3)))
+  } else if (section == "mod_only") {
+    return(setdiff(set2, union(set1, set3)))
+  } else if (section == "crit_only") {
+    return(setdiff(set3, union(set1, set2)))
+  } else if (section == "low_mod") {
+    return(setdiff(intersect(set1, set2), set3))
+  } else if (section == "mod_crit") {
+    return(setdiff(intersect(set2, set3), set1))
+  } else if (section == "low_crit") {
+    return(setdiff(intersect(set1, set3), set2))
+  } else if (section == "all") {
+    return(intersect(intersect(set1, set2), set3))
   }
 }
 
-# Add value column
-df_edges$value <- 1  # Each connection represents one taxa
-
-# Define colors for severity groups (outer ring)
-severity_colors <- c("Low" = "#FDB52D", "Moderate" = "#6666FF", "Critical" = "#FC6666")
-
-set.seed(123)  # For reproducibility
-taxa_list <- unique(df_edges$taxa)
-n <- length(taxa_list)
-
-# Use a larger color palette space and request better separation of colors
-palette <- distinctColorPalette(n)
-names(palette) <- taxa_list
-taxa_colors <- palette
-
-# Map chord colors to taxa
-df_edges$color <- taxa_colors[df_edges$taxa]
-
-# Clear any previous plots
-circos.clear()
-
-# Create the chord diagram without drawing sector labels
-chordDiagram(
-  x = df_edges[, c("from", "to", "value")],
-  grid.col = severity_colors,
-  col = df_edges$color,
-  transparency = 0.25,
-  annotationTrack = "grid",  # Do not automatically add sector labels
-  preAllocateTracks = list(track.height = 0.1)
+# Adjusted text labels with specific positioning and formatting
+# Low only section (left)
+grid.text(
+  paste(get_section_elements(low_genera, mod_genera, crit_genera, "low_only"), collapse="\n"),
+  x = 0.15, y = 0.8, just = "left", gp = gpar(fontsize = 10)
 )
 
-# Add customized sector labels with larger, bold text
-circos.trackPlotRegion(
-  track.index = 1,
-  panel.fun = function(x, y) {
-    sector_name = get.cell.meta.data("sector.index")
-    xlim = get.cell.meta.data("xlim")
-    ylim = get.cell.meta.data("ylim")
-    circos.text(
-      x = mean(xlim),
-      y = ylim[2] + mm_y(2),  # Place label outside the circle
-      labels = sector_name,
-      facing = "outside",
-      niceFacing = TRUE,
-      adj = c(0.5, 0),
-      cex = 1.5,  # Increase text size
-      font = 2    # Bold font
-    )
-  },
-  bg.border = NA
+# Moderate only section (right)
+grid.text(
+  paste(get_section_elements(low_genera, mod_genera, crit_genera, "mod_only"), collapse="\n"),
+  x = 0.7, y = 0.8, just = "left", gp = gpar(fontsize = 10)
 )
 
-# Create a legend for taxa colors using ComplexHeatmap with bold and italic fonts
-taxa_legend <- Legend(
-  labels = names(taxa_colors),
-  legend_gp = gpar(fill = taxa_colors),
-  title = "Taxa",
-  ncol = 1,  # Adjust the number of columns if needed
-  grid_height = unit(5, "mm"),
-  grid_width = unit(5, "mm"),
-  labels_gp = gpar(fontsize = 8, fontface = "bold.italic"),
-  title_gp = gpar(fontsize = 10, fontface = "bold")
+# Critical only section (bottom)
+grid.text(
+  paste(get_section_elements(low_genera, mod_genera, crit_genera, "crit_only"), collapse="\n"),
+  x = 0.5, y = 0.25, just = "center", gp = gpar(fontsize = 10)
 )
 
-# Draw the taxa legend
-draw(taxa_legend, x = unit(1, "npc") - unit(5, "mm"), y = unit(1, "npc") - unit(5, "mm"), just = c("right", "top"))
-
-# Add a legend for severity colors with bold and italic fonts
-severity_legend <- Legend(
-  labels = names(severity_colors),
-  legend_gp = gpar(fill = severity_colors),
-  title = "Severity",
-  ncol = 1,
-  grid_height = unit(5, "mm"),
-  grid_width = unit(5, "mm"),
-  labels_gp = gpar(fontsize = 8, fontface = "bold.italic"),
-  title_gp = gpar(fontsize = 10, fontface = "bold")
+# Low-Moderate intersection (top)
+grid.text(
+  paste(get_section_elements(low_genera, mod_genera, crit_genera, "low_mod"), collapse="\n"),
+  x = 0.5, y = 0.8, just = "center", gp = gpar(fontsize = 10)
 )
 
+# Moderate-Critical intersection (right)
+grid.text(
+  paste(get_section_elements(low_genera, mod_genera, crit_genera, "mod_crit"), collapse="\n"),
+  x = 0.625, y = 0.45, just = "left", gp = gpar(fontsize = 10)
+)
+
+# Low-Critical intersection (left)
+grid.text(
+  paste(get_section_elements(low_genera, mod_genera, crit_genera, "low_crit"), collapse="\n"),
+  x = 0.375, y = 0.45, just = "right", gp = gpar(fontsize = 10)
+)
+
+# Center intersection (all three)
+grid.text(
+  paste(get_section_elements(low_genera, mod_genera, crit_genera, "all"), collapse="\n"),
+  x = 0.5, y = 0.6, just = "center", gp = gpar(fontsize = 10)
+)
 
 ```
 
-![](assets/img/covid_final_bakdrive_chord.png)
+![](/condo/neurobiome/tmhagm8/covid/covid_2024/docs/assets/img/bakdrive_venn.png)
 
 
 
