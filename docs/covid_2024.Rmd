@@ -106,6 +106,7 @@ emu_tax <- tax_table(as.matrix(tax_file))
 physeq <- phyloseq(emu_otu, emu_sam, emu_tax)
 ```
 
+
 Now that we've combined our data into a phyloseq object we want to add the tree to this phyloseq object too. To do this we must make sure we used the Emu 16S database, then we will create the reference tree using the script found here [emu_db_tree](https://osf.io/rqcs2) and the nodes.dmp and names.dmp from the same Emu database OSF. Once made we will use a couple more python scripts to filter the leaves of the tree by the taxa we have present within our current phyloseq object.
 
 ```{r, code_folding=TRUE, eval=FALSE}
